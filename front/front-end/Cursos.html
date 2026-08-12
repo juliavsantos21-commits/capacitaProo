@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapacitaPro - Cursos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="background-wrapper">
+        <header>
+            <div class="logo">
+                <img src="png.logo.png" alt="Ícone CapacitaPro" class="logo-icon">
+                <div class="logo-text">
+                    <h1>CapacitaPro</h1>
+                    <span>TREINAMENTOS PROFISSIONAIS</span>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="inicio.html">Início</a></li>
+                    <li><a href="cursos.html" class="active">Cursos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-buttons">
+                <a href="login.html" class="btn btn-outline">Entrar</a>
+                <a href="cadastro.html" class="btn btn-solid">Cadastrar-se</a>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="page-header">
+                <h2>Cursos</h2>
+                <p>Explore nossos cursos e encontre o treinamento ideal para você.<br>São diversas áreas para você escolher e se capacitar.</p>
+            </section>
+
+            <section class="filter-bar">
+                <div class="filter-group">
+                    <div class="filter-item">
+                        <label><i class="fa-solid fa-layer-group"></i> Área</label>
+                        <select id="filter-area">
+                            <option value="all">Selecione</option>
+                            <option value="Área Técnica">Área Técnica</option>
+                            <option value="Área Operacional">Área Operacional</option>
+                            <option value="Área Administrativa">Área Administrativa</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-item">
+                        <select id="filter-nivel" class="simple-select">
+                            <option value="all">Nível</option>
+                            <option value="Básico">Básico</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-item">
+                        <select id="filter-status" class="simple-select">
+                            <option value="all">Status</option>
+                            <option value="Disponível">Disponível</option>
+                            <option value="Em Breve">Em Breve</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="search-group">
+                    <div class="search-input">
+                        <input type="text" id="input-busca-v2" placeholder="Buscar curso...">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <button id="btn-filtrar-v2" class="btn btn-green"><i class="fa-solid fa-play"></i> Filtrar</button>
+                    <button id="btn-limpar-v2" class="btn-clear"><i class="fa-solid fa-eraser"></i> Limpar</button>
+                </div>
+            </section>
+
+            <section class="course-list-header">
+                <h3>Cursos Disponíveis</h3>
+            </section>
+
+            <section class="course-grid">
+                <div class="course-card" data-area="Área Técnica" data-nivel="Básico" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #e0f2fe, #bae6fd);"><i class="fa-solid fa-truck-medical icon-large" style="color: #0284c7;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-blue">Primeiros Socorros</div>
+                        <div class="course-info"><h4>Técnico - 40 horas</h4><div class="stats"><span>254 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Operacional" data-nivel="Intermediário" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #fef3c7, #fde68a);"><i class="fa-brands fa-python icon-large" style="color: #d97706;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-yellow">Programação Python</div>
+                        <div class="course-info"><h4>Operacional - 50 horas</h4><div class="stats"><span>276 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Administrativa" data-nivel="Avançado" data-status="Em Breve">
+                    <div class="card-img" style="background: linear-gradient(135deg, #dcfce7, #bbf7d0);"><i class="fa-solid fa-briefcase icon-large" style="color: #16a34a;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-green">Gestão de Projetos</div>
+                        <div class="course-info"><h4>Administrativo - 30 horas</h4><div class="stats"><span>428 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Técnica" data-nivel="Intermediário" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #f3e8ff, #d8b4fe);"><i class="fa-solid fa-microchip icon-large" style="color: #9333ea;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-purple">Eletrônica Básica</div>
+                        <div class="course-info"><h4>Técnico - 60 horas</h4><div class="stats"><span>150 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Administrativa" data-nivel="Básico" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #fee2e2, #fecaca);"><i class="fa-solid fa-calculator icon-large" style="color: #dc2626;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-red">Finanças para Iniciantes</div>
+                        <div class="course-info"><h4>Administrativo - 25 horas</h4><div class="stats"><span>840 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Operacional" data-nivel="Avançado" data-status="Em Breve">
+                    <div class="card-img" style="background: linear-gradient(135deg, #fef3c7, #fde68a);"><i class="fa-solid fa-boxes-stacked icon-large" style="color: #d97706;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-yellow">Logística Avançada</div>
+                        <div class="course-info"><h4>Operacional - 80 horas</h4><div class="stats"><span>0 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Administrativa" data-nivel="Avançado" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #e0f2fe, #bae6fd);"><i class="fa-solid fa-users-gear icon-large" style="color: #0284c7;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-blue">Liderança e Gestão</div>
+                        <div class="course-info"><h4>Administrativo - 40 horas</h4><div class="stats"><span>512 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Técnica" data-nivel="Avançado" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #dcfce7, #bbf7d0);"><i class="fa-solid fa-solar-panel icon-large" style="color: #16a34a;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-green">Energia Solar Fotovoltaica</div>
+                        <div class="course-info"><h4>Técnico - 120 horas</h4><div class="stats"><span>95 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Operacional" data-nivel="Básico" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #fee2e2, #fecaca);"><i class="fa-solid fa-fire-extinguisher icon-large" style="color: #dc2626;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-red">Brigada de Incêndio</div>
+                        <div class="course-info"><h4>Operacional - 20 horas</h4><div class="stats"><span>1.100 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Administrativa" data-nivel="Intermediário" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #f0f9ff, #7dd3fc);"><i class="fa-solid fa-file-invoice-dollar icon-large" style="color: #0369a1;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-blue">Assistente Contábil</div>
+                        <div class="course-info"><h4>Administrativo - 60 horas</h4><div class="stats"><span>320 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Técnica" data-nivel="Intermediário" data-status="Em Breve">
+                    <div class="card-img" style="background: linear-gradient(135deg, #f3e8ff, #d8b4fe);"><i class="fa-solid fa-gears icon-large" style="color: #9333ea;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-purple">Manutenção Industrial</div>
+                        <div class="course-info"><h4>Técnico - 100 horas</h4><div class="stats"><span>0 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Operacional" data-nivel="Básico" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #fef3c7, #fde68a);"><i class="fa-solid fa-helmet-safety icon-large" style="color: #d97706;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-yellow">Segurança do Trabalho (NR10)</div>
+                        <div class="course-info"><h4>Operacional - 40 horas</h4><div class="stats"><span>1.500 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Administrativa" data-nivel="Básico" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #dcfce7, #bbf7d0);"><i class="fa-solid fa-headset icon-large" style="color: #16a34a;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-green">Atendimento ao Cliente</div>
+                        <div class="course-info"><h4>Administrativo - 30 horas</h4><div class="stats"><span>940 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Técnica" data-nivel="Avançado" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #fee2e2, #fecaca);"><i class="fa-solid fa-network-wired icon-large" style="color: #dc2626;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-red">Redes de Computadores</div>
+                        <div class="course-info"><h4>Técnico - 80 horas</h4><div class="stats"><span>210 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Operacional" data-nivel="Intermediário" data-status="Em Breve">
+                    <div class="card-img" style="background: linear-gradient(135deg, #e0f2fe, #bae6fd);"><i class="fa-solid fa-forklift icon-large" style="color: #0284c7;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-blue">Operador de Empilhadeira</div>
+                        <div class="course-info"><h4>Operacional - 45 horas</h4><div class="stats"><span>0 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Administrativa" data-nivel="Intermediário" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #fef3c7, #fde68a);"><i class="fa-solid fa-users-rectangle icon-large" style="color: #d97706;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-yellow">Recursos Humanos</div>
+                        <div class="course-info"><h4>Administrativo - 50 horas</h4><div class="stats"><span>450 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-area="Área Técnica" data-nivel="Básico" data-status="Disponível">
+                    <div class="card-img" style="background: linear-gradient(135deg, #f3e8ff, #d8b4fe);"><i class="fa-solid fa-code icon-large" style="color: #9333ea;"></i></div>
+                    <div class="card-body">
+                        <div class="course-tag tag-purple">Lógica de Programação</div>
+                        <div class="course-info"><h4>Técnico - 40 horas</h4><div class="stats"><span>780 Alunos</span></div></div>
+                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                    </div>
+                </div>
+                
+            </section>
+        </main>
+    </div>
+
+    <script>
+        console.log("Teste: O script abriu!");
+
+        // Função que roda assim que o botão é clicado
+        document.getElementById('btn-filtrar-v2').onclick = function() {
+            console.log("Botão filtrar clicado!");
+            
+            let area = document.getElementById('filter-area').value;
+            let nivel = document.getElementById('filter-nivel').value;
+            let status = document.getElementById('filter-status').value;
+            let busca = document.getElementById('input-busca-v2').value.toLowerCase();
+            
+            let cards = document.querySelectorAll('.course-card');
+            
+            cards.forEach(card => {
+                let cArea = card.getAttribute('data-area');
+                let cNivel = card.getAttribute('data-nivel');
+                let cStatus = card.getAttribute('data-status');
+                let cTexto = card.innerText.toLowerCase();
+                
+                let matchArea = (area === "all" || area === cArea);
+                let matchNivel = (nivel === "all" || nivel === cNivel);
+                let matchStatus = (status === "all" || status === cStatus);
+                let matchBusca = (busca === "" || cTexto.includes(busca));
+                
+                if(matchArea && matchNivel && matchStatus && matchBusca) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        };
+
+        document.getElementById('btn-limpar-v2').onclick = function() {
+            location.reload(); 
+        };
+    </script>
+</body>
+</html>

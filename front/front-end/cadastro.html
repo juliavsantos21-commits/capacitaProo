@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - CapacitaPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cadastro-page">
+
+    <div class="background-wrapper">
+
+        <header>
+            <div class="logo">
+                <img src="png.logo.png" alt="Ícone CapacitaPro" class="logo-icon">
+                
+                <div class="logo-text">
+                    <h1>CapacitaPro</h1>
+                    <span>TREINAMENTOS PROFISSIONAIS</span>
+                </div>
+            </div>
+        
+<div class="header-buttons">
+        <a href="login.html" class="btn btn-outline">Entrar</a>
+        <a href="#" class="btn btn-solid">Cadastrar-se</a>
+    </div>
+        </header>
+
+        <div class="progress-container">
+            <ul class="progress-bar">
+                <li><span>1</span> Criar Conta</li>
+                <li><span>2</span> Qual seu objetivo?</li>
+                <li><span>3</span> Escolha um curso</li>
+                <li><span>4</span> Seu nível de conhecimento</li>
+            </ul>
+        </div>
+
+        <main class="container">
+            
+            <section class="step-section glass-panel">
+                <div class="step-grid">
+                    <div class="form-side">
+                        <h2>Cadastre sua Conta e Inicie a Jornada</h2>
+                        <p>Preencha os campos abaixo para criar sua conta e iniciar sua jornada de aprendizado personalizada.</p>
+                        
+                        <form>
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" class="glass-input" placeholder="Nome Completo">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" class="glass-input" placeholder="E-mail">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" class="glass-input" placeholder="Senha">
+                                <i class="fas fa-eye right-icon"></i>
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" class="glass-input" placeholder="Confirmar Senha">
+                                <i class="fas fa-eye right-icon"></i>
+                            </div>
+                            
+                    </div>
+                    
+                    <div class="info-side">
+                        
+                        <div class="info-grid">
+                            <div class="info-card glass-light">
+                                <i class="fas fa-bullseye"></i>
+                                <div>
+                                    <h4>Criar Conta</h4>
+                                    <p>Preencha seus dados</p>
+                                </div>
+                            </div>
+                            <div class="info-card glass-light">
+                                <i class="fas fa-book-open"></i>
+                                <div>
+                                    <h4>Escolha um curso</h4>
+                                    <p>Selecione seu primeiro curso</p>
+                                </div>
+                            </div>
+                            <div class="info-card glass-light">
+                                <i class="fas fa-envelope-open-text"></i>
+                                <div>
+                                    <h4>Seu nível de conhecimento</h4>
+                                    <p>Configure sua estrutura curricular</p>
+                                </div>
+                            </div>
+                             <div class="info-card glass-light">
+                                <i class="fas fa-bullseye"></i>
+                                <div>
+                                    <h4>Qual seu objetivo?</h4>
+                                    <p>Escolha a área</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="step-section glass-panel">
+                <h2>Passo 2 e 3: Escolha seu Objetivo e Curso para Matrícula</h2>
+                
+                <div class="goal-selector glass-light">
+                    <div class="goal-title">
+                        <i class="fas fa-bullseye"></i>
+                        <div>
+                            <h3>Qual seu objetivo?</h3>
+                            <p>Selecione a área para desbloquear as recomendações personalizadas.</p>
+                        </div>
+                    </div>
+                    <select class="glass-select">
+                        <option>Selecione uma área</option>
+                        <option>Área Técnica</option>
+                        <option>Área Operacional</option>
+                        <option>Área Administrativa</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="step-section glass-panel">
+                <h2>Passo 4: Sua Grade e Estrutura Curricular Atual</h2>
+                <div class="curriculum-form">
+                    <h3>Defina sua Grade</h3>
+                    
+                    <div class="form-row">
+                        <div class="input-block">
+                            <label>Sua Instituição de Ensino Atual/Última</label>
+                            <select class="glass-select" name="instituicao" required>
+                                <option value="" disabled selected>Selecione sua instituição...</option>
+                                <option value="ifs_estancia">IFS - Instituto Federal de Sergipe (Campus Estância)</option>
+                                <option value="senai_estancia">SENAI - Estância</option>
+                                <option value="walter_franco">Centro de Excelência Senador Walter Franco</option>
+                                <option value="arabela_ribeiro">Centro de Excelência Arabela Ribeiro</option>
+                                <option value="gilson_amado">Colégio Estadual Gilson Amado</option>
+                                <option value="constancio_vieira">Escola Estadual Constâncio Vieira</option>
+                                <option value="outra_estadual">Outra Escola Estadual</option>
+                                <option value="cscj">Colégio Sagrado Coração de Jesus (CSCJ)</option>
+                                <option value="escola_criativa">Centro Educacional Criativo (Escola Criativa)</option>
+                                <option value="modulo">Centro Educacional Módulo</option>
+                                <option value="haroldo_rocha">Escola Haroldo Rocha</option>
+                                <option value="outra_particular">Outra Escola Particular</option>
+                                <option value="concluido">Já concluí meus estudos</option>
+                            </select>
+                        </div> <div class="input-block">
+                            <label>Ano de Conclusão ou Atual</label>
+                            <select class="glass-select" name="ano_conclusao" required>
+                                <option value="" disabled selected>Selecione o ano...</option>
+                                <option value="2028">2028</option>
+                                <option value="2027">2027</option>
+                                <option value="2026">2026</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="antes_2015">Antes de 2015</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-block">
+                        <label>Sua Estrutura Curricular Detalhada</label>
+                        <textarea class="glass-textarea" rows="4" placeholder="Colar Grade Curricular ou Listar Disciplinas"></textarea>
+                    </div>
+
+                    <button class="btn-upload glass-light"><i class="fas fa-paperclip"></i> Upload de Histórico Escolar</button>
+                    <p class="info-text">Essas informações são cruciais para nosso algoritmo recomendar cursos que complementem sua formação. Sem isso, não podemos personalizar sua experiência.</p>
+
+                    <div class="input-block">
+                        <label>Áreas de Interesse Adicionais</label>
+                        <input type="text" class="glass-input" placeholder="Ex: Gestão de Projetos, IA, etc.">
+                    </div>
+                </div>
+            </section>
+
+            <section class="step-section glass-panel summary-section">
+                <h2>Resumo do Cadastro & Matrícula</h2>
+                <div class="summary-box glass-light">
+                    <div class="summary-item"><span>Nome</span> </div>
+                    <div class="summary-item"><span>E-mail</span></div>
+                    <div class="summary-item"><span>Curso Escolhido</span> </div>
+                    <div class="summary-item"><span>Estrutura Cadastrada</span></div>
+                </div>
+                
+              <button type="button" class="btn-primary-block btn-large" onclick="window.location.href='inicio.html'">Finalizar Cadastro e Efetivar Matrícula</button>
+                <p class="terms-text">Ao clicar, você concorda com nossos termos e políticas.<br>Sua conta será criada e você receberá as recomendações baseadas na sua grade.</p>
+            </section>
+
+        </main>
+    </div>
+    </main>
+    </div>
+
+    <script src="cadastro.js"></script>
+
+</body>
+</html>
