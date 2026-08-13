@@ -1773,4 +1773,53 @@ style
         .summary-item:last-child {
             border-bottom: none;
         }
-    
+    /* ==========================================
+   BOTÃO CADASTRAR (ESTILO QUADRADO)
+   ========================================== */
+.btn-cadastrar-link {
+    display: inline-block;
+    background: #40c057;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(64, 192, 87, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-cadastrar-link:hover {
+    background: #2b8a3e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(64, 192, 87, 0.4);
+}
+
+/* Versão menor para o footer */
+.btn-cadastrar-small {
+    display: inline-block;
+    background: #40c057;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(64, 192, 87, 0.3);
+    margin-top: 10px;
+}
+
+.btn-cadastrar-small:hover {
+    background: #2b8a3e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(64, 192, 87, 0.4);
+}
