@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda e Contato - CapacitaPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-wrapper">
+
+        <header>
+            <div class="logo">
+                <img src="png.logo.png" alt="Ícone CapacitaPro" class="logo-icon">
+                <div class="logo-text">
+                    <h1>CapacitaPro</h1>
+                    <span>TREINAMENTOS PROFISSIONAIS</span>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="inicio.html">Início</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html" class="active">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-buttons">
+                <a href="login.html" class="btn btn-outline">Entrar</a>
+                <a href="cadastro.html" class="btn btn-solid">Cadastrar-se</a>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="form-section">
+                <h2 class="section-title">Entre em Contato</h2>
+                <form class="contact-form">
+                    <div class="input-group">
+                        <label><i class="fas fa-check-circle"></i> Seu nome</label>
+                        <input type="text" class="glass-input" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-check-circle"></i> Seu e-mail</label>
+                        <input type="email" class="glass-input" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-check-circle"></i> Assunto</label>
+                        <input type="text" class="glass-input" required>
+                    </div>
+                    <div class="input-group full-width">
+                        <textarea class="glass-input" rows="4" required></textarea>
+                        <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        
+    </div> <script src="script.js"></script>
+</body>
+</html>
