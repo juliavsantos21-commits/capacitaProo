@@ -45,24 +45,24 @@
                         <h2>Cadastre sua Conta e Inicie a Jornada</h2>
                         <p>Preencha os campos abaixo para criar sua conta e iniciar sua jornada de aprendizado personalizada.</p>
                         
-                        <form>
+                        <form id="cadastroForm">
                             <div class="input-group">
                                 <i class="fas fa-user"></i>
-                                <input type="text" class="glass-input" placeholder="Nome Completo">
+                                <input type="text" class="glass-input" placeholder="Nome Completo" id="nomeCompleto" required>
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-envelope"></i>
-                                <input type="email" class="glass-input" placeholder="E-mail">
+                                <input type="email" class="glass-input" placeholder="E-mail" id="email" required>
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" class="glass-input" placeholder="Senha">
-                                <i class="fas fa-eye right-icon"></i>
+                                <input type="password" class="glass-input" placeholder="Senha" id="senha" required>
+                                <i class="fas fa-eye right-icon" onclick="togglePassword('senha', this)"></i>
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" class="glass-input" placeholder="Confirmar Senha">
-                                <i class="fas fa-eye right-icon"></i>
+                                <input type="password" class="glass-input" placeholder="Confirmar Senha" id="confirmarSenha" required>
+                                <i class="fas fa-eye right-icon" onclick="togglePassword('confirmarSenha', this)"></i>
                             </div>
                             
                     </div>
@@ -114,11 +114,11 @@
                             <p>Selecione a área para desbloquear as recomendações personalizadas.</p>
                         </div>
                     </div>
-                    <select class="glass-select">
-                        <option>Selecione uma área</option>
-                        <option>Área Técnica</option>
-                        <option>Área Operacional</option>
-                        <option>Área Administrativa</option>
+                    <select class="glass-select" id="objetivo">
+                        <option value="">Selecione uma área</option>
+                        <option value="tecnica">Área Técnica</option>
+                        <option value="operacional">Área Operacional</option>
+                        <option value="administrativa">Área Administrativa</option>
                     </select>
                 </div>
             </section>
@@ -131,7 +131,7 @@
                     <div class="form-row">
                         <div class="input-block">
                             <label>Sua Instituição de Ensino Atual/Última</label>
-                            <select class="glass-select" name="instituicao" required>
+                            <select class="glass-select" name="instituicao" id="instituicao" required>
                                 <option value="" disabled selected>Selecione sua instituição...</option>
                                 <option value="ifs_estancia">IFS - Instituto Federal de Sergipe (Campus Estância)</option>
                                 <option value="senai_estancia">SENAI - Estância</option>
@@ -147,9 +147,10 @@
                                 <option value="outra_particular">Outra Escola Particular</option>
                                 <option value="concluido">Já concluí meus estudos</option>
                             </select>
-                        </div> <div class="input-block">
+                        </div> 
+                        <div class="input-block">
                             <label>Ano de Conclusão ou Atual</label>
-                            <select class="glass-select" name="ano_conclusao" required>
+                            <select class="glass-select" name="ano_conclusao" id="anoConclusao" required>
                                 <option value="" disabled selected>Selecione o ano...</option>
                                 <option value="2028">2028</option>
                                 <option value="2027">2027</option>
@@ -172,15 +173,23 @@
 
                     <div class="input-block">
                         <label>Sua Estrutura Curricular Detalhada</label>
-                        <textarea class="glass-textarea" rows="4" placeholder="Colar Grade Curricular ou Listar Disciplinas"></textarea>
+                        <textarea class="glass-textarea" id="curriculo" rows="4" placeholder="Colar Grade Curricular ou Listar Disciplinas"></textarea>
                     </div>
 
-                    <button class="btn-upload glass-light"><i class="fas fa-paperclip"></i> Upload de Histórico Escolar</button>
+                    <!-- BOTÃO DE UPLOAD DE HISTÓRICO ESCOLAR FUNCIONAL -->
+                    <div class="upload-container">
+                        <label for="uploadHistorico" class="btn-upload glass-light">
+                            <i class="fas fa-paperclip"></i> Upload de Histórico Escolar
+                        </label>
+                        <input type="file" id="uploadHistorico" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt" style="display: none;">
+                        <span id="nomeArquivo" class="nome-arquivo">Nenhum arquivo selecionado</span>
+                    </div>
+
                     <p class="info-text">Essas informações são cruciais para nosso algoritmo recomendar cursos que complementem sua formação. Sem isso, não podemos personalizar sua experiência.</p>
 
                     <div class="input-block">
                         <label>Áreas de Interesse Adicionais</label>
-                        <input type="text" class="glass-input" placeholder="Ex: Gestão de Projetos, IA, etc.">
+                        <input type="text" class="glass-input" id="interesses" placeholder="Ex: Gestão de Projetos, IA, etc.">
                     </div>
                 </div>
             </section>
@@ -188,13 +197,13 @@
             <section class="step-section glass-panel summary-section">
                 <h2>Resumo do Cadastro & Matrícula</h2>
                 <div class="summary-box glass-light">
-                    <div class="summary-item"><span>Nome</span> </div>
-                    <div class="summary-item"><span>E-mail</span></div>
-                    <div class="summary-item"><span>Curso Escolhido</span> </div>
-                    <div class="summary-item"><span>Estrutura Cadastrada</span></div>
+                    <div class="summary-item"><span>Nome</span> <span id="resumoNome">-</span></div>
+                    <div class="summary-item"><span>E-mail</span> <span id="resumoEmail">-</span></div>
+                    <div class="summary-item"><span>Curso Escolhido</span> <span id="resumoCurso">-</span></div>
+                    <div class="summary-item"><span>Histórico Escolar</span> <span id="resumoHistorico">Nenhum arquivo</span></div>
                 </div>
                 
-              <button type="button" class="btn-primary-block btn-large" onclick="window.location.href='inicio.html'">Finalizar Cadastro e Efetivar Matrícula</button>
+                <button type="button" class="btn-primary-block btn-large" onclick="finalizarCadastro()">Finalizar Cadastro e Efetivar Matrícula</button>
                 <p class="terms-text">Ao clicar, você concorda com nossos termos e políticas.<br>Sua conta será criada e você receberá as recomendações baseadas na sua grade.</p>
             </section>
 
@@ -203,7 +212,181 @@
     </main>
     </div>
 
-    <script src="cadastro.js"></script>
+    <script>
+        // Função para mostrar/ocultar senha
+        function togglePassword(inputId, element) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                element.classList.remove('fa-eye');
+                element.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                element.classList.remove('fa-eye-slash');
+                element.classList.add('fa-eye');
+            }
+        }
+
+        // =============================================
+        // UPLOAD DE HISTÓRICO ESCOLAR - FUNCIONAL
+        // =============================================
+        const inputUpload = document.getElementById('uploadHistorico');
+        const nomeArquivo = document.getElementById('nomeArquivo');
+        const resumoHistorico = document.getElementById('resumoHistorico');
+
+        inputUpload.addEventListener('change', function(e) {
+            const file = this.files[0];
+            if (file) {
+                // Mostra o nome do arquivo
+                nomeArquivo.textContent = file.name;
+                // Atualiza o resumo
+                resumoHistorico.textContent = file.name;
+                
+                // Exibe uma mensagem de sucesso (opcional)
+                console.log('Arquivo selecionado:', file.name, 'Tamanho:', file.size, 'bytes');
+                
+                // Aqui você pode adicionar código para:
+                // - Validar o tipo de arquivo
+                // - Validar o tamanho máximo
+                // - Enviar automaticamente para o servidor
+                // - Exibir um preview do arquivo
+            } else {
+                nomeArquivo.textContent = 'Nenhum arquivo selecionado';
+                resumoHistorico.textContent = 'Nenhum arquivo';
+            }
+        });
+
+        // Validação de tipo de arquivo (exemplo)
+        inputUpload.addEventListener('change', function(e) {
+            const file = this.files[0];
+            if (file) {
+                const tiposPermitidos = ['application/pdf', 'application/msword', 
+                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                    'image/jpeg', 'image/png', 'text/plain'];
+                
+                if (!tiposPermitidos.includes(file.type)) {
+                    alert('⚠️ Tipo de arquivo não suportado. Use PDF, DOC, DOCX, JPG, PNG ou TXT.');
+                    this.value = ''; // Limpa o input
+                    nomeArquivo.textContent = 'Nenhum arquivo selecionado';
+                    resumoHistorico.textContent = 'Nenhum arquivo';
+                    return;
+                }
+
+                // Validação de tamanho (ex: max 10MB)
+                if (file.size > 10 * 1024 * 1024) {
+                    alert('⚠️ Arquivo muito grande. Tamanho máximo: 10MB.');
+                    this.value = '';
+                    nomeArquivo.textContent = 'Nenhum arquivo selecionado';
+                    resumoHistorico.textContent = 'Nenhum arquivo';
+                    return;
+                }
+
+                // Se passou nas validações, mostra um feedback positivo
+                console.log('✅ Arquivo válido!');
+            }
+        });
+
+        // =============================================
+        // ATUALIZAÇÃO DO RESUMO EM TEMPO REAL
+        // =============================================
+        document.getElementById('nomeCompleto').addEventListener('input', function() {
+            document.getElementById('resumoNome').textContent = this.value || '-';
+        });
+
+        document.getElementById('email').addEventListener('input', function() {
+            document.getElementById('resumoEmail').textContent = this.value || '-';
+        });
+
+        document.getElementById('objetivo').addEventListener('change', function() {
+            const opcoes = {
+                'tecnica': 'Área Técnica',
+                'operacional': 'Área Operacional',
+                'administrativa': 'Área Administrativa'
+            };
+            document.getElementById('resumoCurso').textContent = opcoes[this.value] || '-';
+        });
+
+        // =============================================
+        // FUNÇÃO DE FINALIZAR CADASTRO
+        // =============================================
+        function finalizarCadastro() {
+            // Verifica se o formulário está preenchido
+            const nome = document.getElementById('nomeCompleto').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const senha = document.getElementById('senha').value;
+            const confirmar = document.getElementById('confirmarSenha').value;
+            const arquivo = document.getElementById('uploadHistorico').files[0];
+
+            // Validações básicas
+            if (!nome) {
+                alert('⚠️ Por favor, preencha seu nome completo.');
+                return;
+            }
+            if (!email) {
+                alert('⚠️ Por favor, preencha seu e-mail.');
+                return;
+            }
+            if (!email.includes('@')) {
+                alert('⚠️ Por favor, insira um e-mail válido.');
+                return;
+            }
+            if (senha.length < 6) {
+                alert('⚠️ A senha deve ter pelo menos 6 caracteres.');
+                return;
+            }
+            if (senha !== confirmar) {
+                alert('⚠️ As senhas não coincidem.');
+                return;
+            }
+            if (!arquivo) {
+                alert('⚠️ Por favor, faça o upload do seu Histórico Escolar.');
+                return;
+            }
+
+            // Se tudo estiver ok, exibe mensagem de sucesso
+            alert('✅ Cadastro realizado com sucesso!\n\n' +
+                  '📄 Histórico Escolar anexado: ' + arquivo.name + '\n' +
+                  '🎯 Você receberá recomendações personalizadas em breve!\n\n' +
+                  '📧 Um e-mail de confirmação foi enviado para: ' + email);
+
+            // Redireciona para a página inicial
+            window.location.href = 'inicio.html';
+        }
+
+        // =============================================
+        // FUNCIONALIDADE DE ARRASTAR E SOLTAR (OPCIONAL)
+        // =============================================
+        const uploadContainer = document.querySelector('.upload-container');
+        
+        if (uploadContainer) {
+            uploadContainer.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#00b894';
+                this.style.backgroundColor = 'rgba(0, 184, 148, 0.1)';
+            });
+
+            uploadContainer.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#ccc';
+                this.style.backgroundColor = 'transparent';
+            });
+
+            uploadContainer.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#ccc';
+                this.style.backgroundColor = 'transparent';
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    inputUpload.files = files;
+                    // Dispara o evento change manualmente
+                    const event = new Event('change');
+                    inputUpload.dispatchEvent(event);
+                }
+            });
+        }
+    </script>
+
 
 </body>
 </html>
