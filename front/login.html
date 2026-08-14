@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 
-<!-- 🔵 BIBLIOTECA DO GOOGLE - ADICIONADA AQUI -->
+<!-- 🔵 BIBLIOTECA DO GOOGLE -->
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body class="login-body">
@@ -30,16 +30,16 @@
 <p class="login-subtitle">Bem-vindo de volta! Insira suas informações para acessar sua conta.</p>
 
 <div class="glass-panel form-card">
-<form id="loginForm"> <!-- ⚠️ ADICIONEI O ID "loginForm" -->
+<form id="loginForm">
 <div class="input-group">
 <i class="fas fa-envelope icon-left"></i>
-<input type="text" class="glass-input" placeholder="E-mail ou Número de Matrícula" id="emailInput"> <!-- ⚠️ ADICIONEI O ID -->
+<input type="text" class="glass-input" placeholder="E-mail ou Número de Matrícula" id="emailInput">
 </div>
 
 <div class="input-group">
 <i class="fas fa-lock icon-left"></i>
-<input type="password" class="glass-input" placeholder="Senha" id="passwordInput"> <!-- ⚠️ ADICIONEI O ID -->
-<i class="fas fa-eye icon-right" onclick="togglePassword('passwordInput', this)"></i> <!-- ⚠️ ADICIONEI A FUNÇÃO -->
+<input type="password" class="glass-input" placeholder="Senha" id="passwordInput">
+<i class="fas fa-eye icon-right" onclick="togglePassword('passwordInput', this)"></i>
 </div>
 
 <div class="checkbox-group">
@@ -50,20 +50,19 @@ Lembrar-me
 </label>
 </div>
 
-<!-- ✅ BOTÃO ENTRAR - MUDOU PARA type="submit" -->
 <button type="submit" class="btn-green-block" style="display: block; text-align: center; width: 100%; padding: 15px; border-radius: 8px; border: none; font-weight: 700; font-size: 1rem; cursor: pointer; background: linear-gradient(to right, #4caf50, #2af598); color: #004aad;">
 Entrar
 </button>
 </form>
 
-<!-- 🔵 DIVISOR "ou" - ADICIONADO -->
+<!-- DIVISOR "ou" -->
 <div class="separator" style="margin: 25px 0; display: flex; align-items: center; gap: 15px; color: rgba(255,255,255,0.6);">
 <hr style="flex: 1; border-color: rgba(255,255,255,0.2);">
 <span style="font-size: 0.85rem;">ou</span>
 <hr style="flex: 1; border-color: rgba(255,255,255,0.2);">
 </div>
 
-<!-- 🔵 BOTÃO "ENTRAR COM GOOGLE" - ADICIONADO -->
+<!-- BOTÃO "ENTRAR COM GOOGLE" -->
 <div id="googleButtonContainer" style="display: flex; justify-content: center; margin-bottom: 20px;"></div>
 
 <div class="form-links" style="text-align: center; margin-top: 20px;">
@@ -85,20 +84,19 @@ Cadastrar-se
 
 <footer class="login-footer" style="text-align: center; padding: 30px 20px;">
 <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 10px;">Ainda não tem uma conta?</p>
-
 <a href="cadastro.html" class="btn-cadastrar-small">
 Cadastrar-se
 </a>
 </footer>
 
-<!-- 🔵 SCRIPT DO GOOGLE - ADICIONADO AQUI -->
+<!-- SCRIPT DO GOOGLE -->
 <script>
 // ==========================================
 // 🔵 CONFIGURAÇÃO DO LOGIN COM GOOGLE
 // ==========================================
 
-// ⚠️ COLE AQUI O SEU CLIENT ID (que você copiou do Google Cloud)
-const GOOGLE_CLIENT_ID = "SEU_CLIENT_ID_AQUI.apps.googleusercontent.com";
+// ✅ SEU CLIENT ID JÁ ESTÁ AQUI!
+const GOOGLE_CLIENT_ID = "950045659238-5he1b6jgovnpr4vkjqb6m35rn5ruk93p.apps.googleusercontent.com";
 
 // Função chamada após login com Google
 function handleGoogleLogin(response) {
@@ -139,7 +137,7 @@ return JSON.parse(jsonPayload);
 
 // Inicializa o botão do Google
 function initializeGoogleButton() {
-if (typeof google !== 'undefined' && GOOGLE_CLIENT_ID !== "SEU_CLIENT_ID_AQUI.apps.googleusercontent.com") {
+if (typeof google !== 'undefined') {
 google.accounts.id.initialize({
 client_id: GOOGLE_CLIENT_ID,
 callback: handleGoogleLogin,
@@ -158,10 +156,7 @@ text: 'continue_with',
 logo_alignment: 'left'
 }
 );
-} else if (GOOGLE_CLIENT_ID === "SEU_CLIENT_ID_AQUI.apps.googleusercontent.com") {
-console.warn("⚠️ Substitua GOOGLE_CLIENT_ID pelo seu Client ID do Google");
-document.getElementById('googleButtonContainer').innerHTML =
-'<p style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">Configure o Client ID do Google</p>';
+console.log("✅ Botão do Google inicializado!");
 } else {
 console.warn("⏳ Aguardando carregamento da biblioteca Google...");
 setTimeout(initializeGoogleButton, 500);
