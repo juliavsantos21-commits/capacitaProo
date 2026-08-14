@@ -10,33 +10,33 @@
 </head>
 <body>
 
-     <header>
-            <div class="logo">
-                <img src="png.logo.png" alt="Ícone CapacitaPro" class="logo-icon">
-                
-                <div class="logo-text">
-                    <h1>CapacitaPro</h1>
-                    <span>TREINAMENTOS PROFISSIONAIS</span>
-                </div>
+    <header>
+        <div class="logo">
+            <img src="png.logo.png" alt="Ícone CapacitaPro" class="logo-icon">
+            <div class="logo-text">
+                <h1>CapacitaPro</h1>
+                <span>TREINAMENTOS PROFISSIONAIS</span>
             </div>
-            
-            <nav>
-                <ul>
-                    <li><a href="inicio.html">Início</a></li>
-                    <li><a href="Cursos.html" class="active">Cursos</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-            </nav>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cursos.html" class="active">Cursos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
 
-            <div class="header-buttons">
-                <a href="login.html" class="btn btn-outline">Entrar</a>
-                <a href="cadastro.html" class="btn btn-solid">Cadastrar-se</a>
-            </div>
-        </header>
+        <div class="header-buttons">
+            <a href="login.html" class="btn btn-outline">Entrar</a>
+            <a href="cadastro.html" class="btn btn-solid">Cadastrar-se</a>
+        </div>
+    </header>
 
     <main class="container">
-        <a href="Cursos.html" class="back-link"><i class="fa-solid fa-chevron-left"></i> Voltar para cursos</a>
+        <!-- BOTÃO VOLTAR -->
+        <a href="cursos.html" class="back-link"><i class="fa-solid fa-chevron-left"></i> Voltar para cursos</a>
 
         <div class="course-layout">
             
@@ -50,9 +50,8 @@
                     <h3>Primeiros Socorros</h3>
                     <p class="subtitle">Técnico • 40 horas <small>254 Alunos</small></p>
                     
-                    <button class="btn-enroll-primary" onclick="window.location.href='cadastro.html'">
-                        Matricular-se
-                    </button>
+                    <!-- BOTÃO MATRICULAR-SE (SIDEBAR) -->
+                    <a href="cadastro.html" class="btn-enroll-primary" style="display: block; text-align: center; text-decoration: none;">Matricular-se</a>
 
                     <ul class="course-info-list">
                         <li><i class="fa-solid fa-desktop"></i> <span>Modalidade:</span> 100% Online</li>
@@ -76,12 +75,12 @@
             </aside>
 
             <section class="main-content">
-            
+                <!-- NAVEGAÇÃO ENTRE AS PÁGINAS DO CURSO (ABAS) -->
                 <div class="tabs">
-                    <a href="cursosobreocurso.html" class="tab-item active">Sobre o curso</a>
-                    <a href="cursoconteudo.html" class="tab-item">Conteúdo programático</a>
-                    <a href="cursoinstrutor.html" class="tab-item">Instrutor</a>
-                    <a href="cursosavaliacoes.html" class="tab-item">Avaliações</a>
+                    <a href="cursoPSCRR.html" class="tab-item active" style="text-decoration: none; display: inline-block;">Sobre o curso</a>
+                    <a href="cursoPSCRR2.html" class="tab-item" style="text-decoration: none; display: inline-block;">Conteúdo programático</a>
+                    <a href="cursoPSCRR3.html" class="tab-item" style="text-decoration: none; display: inline-block;">Instrutor</a>
+                    <a href="cursoPSCRR4.html" class="tab-item" style="text-decoration: none; display: inline-block;">Avaliações</a>
                 </div>
 
                 <div class="tab-content">
@@ -143,15 +142,15 @@
                             <i class="fa-solid fa-graduation-cap"></i>
                             <p>Invista no seu conhecimento e faça a diferença!</p>
                         </div>
-                        <button class="btn-enroll-final" onclick="window.location.href='cadastro.html'">
-                            Matricular-se agora <i class="fa-solid fa-arrow-right"></i>
-                        </button>
+                        <!-- BOTÃO MATRICULAR-SE AGORA (RODAPÉ) -->
+                        <a href="cadastro.html" class="btn-enroll-final" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">Matricular-se agora <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
                     </div>
                 </div>
             </section>
         </div>
     </main>
 
+    <!-- SCRIPT JS PARA GARANTIR FUNCIONALIDADES EXTRAS -->
     <script src="script.js"></script>
 </body>
 </html>
