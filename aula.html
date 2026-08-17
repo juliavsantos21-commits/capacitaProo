@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapacitaPro - Visualizador de Aula</title>
+    <!-- Importante: carregar aluno.css primeiro, depois aula.css -->
+    <link rel="stylesheet" href="aluno.css">
+    <link rel="stylesheet" href="aula.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-content">
+                <img src="png.logo.png" alt="Ícone CapacitaPro" class="logo-icon">
+                <div class="logo-text">
+                    <h1>CapacitaPro</h1>
+                    <span>TREINAMENTOS PROFISSIONAIS</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="user-profile">
+            <a href="aluno.html" class="back-link">
+                <i class="fa-solid fa-house"></i> Voltar ao Início
+            </a>
+            <a href="perfil.html" style="text-decoration: none;" title="Meu Perfil">
+                <div class="user-avatar">A</div>
+            </a>
+        </div>
+    </header>
+
+    <div class="classroom-container">
+        
+        <main class="video-section">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Player de Vídeo" allowfullscreen></iframe>
+            </div>
+            
+            <div class="lesson-info">
+                <h2>01. Introdução à Plataforma .NET</h2>
+                <p>Nesta aula você aprenderá os conceitos fundamentais da arquitetura .NET e como configurar seu ambiente de desenvolvimento do zero.</p>
+                
+                <div class="lesson-actions">
+                    <button class="btn-secondary"><i class="fa-solid fa-chevron-left"></i> Aula Anterior</button>
+                    <button class="btn-primary">Próxima Aula <i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="modules-sidebar">
+            <h3>Módulos do Curso</h3>
+            
+            <div class="module-item">
+                <h4>Módulo 1: Primeiros Passos</h4>
+                <ul class="lesson-list">
+                    <li class="completed">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Instalação do SDK</span>
+                    </li>
+                    <li class="current">
+                        <i class="fa-solid fa-circle-play"></i>
+                        <span>Introdução ao .NET</span>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle"></i>
+                        <span>Criando a primeira API</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="module-item">
+                <h4>Módulo 2: C# Avançado</h4>
+                <ul class="lesson-list">
+                    <li>
+                        <i class="fa-regular fa-circle"></i>
+                        <span>LINQ e Coleções</span>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-circle"></i>
+                        <span>Programação Assíncrona</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+</body>
+</html>
