@@ -22,7 +22,7 @@
             
             <nav>
                 <ul>
-                    <li><a href="inicio.html">Início</a></li>
+                    <li><a href="index.html">Início</a></li>
                     <li><a href="cursos.html" class="active">Cursos</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="contato.html">Contato</a></li>
@@ -86,12 +86,15 @@
             </section>
 
             <section class="course-grid">
+                <!-- CARD PRIMEIROS SOCORROS (ATUALIZADO COM REDIRECIONAMENTO) -->
                 <div class="course-card" data-area="Área Técnica" data-nivel="Básico" data-status="Disponível">
                     <div class="card-img" style="background: linear-gradient(135deg, #e0f2fe, #bae6fd);"><i class="fa-solid fa-truck-medical icon-large" style="color: #0284c7;"></i></div>
                     <div class="card-body">
                         <div class="course-tag tag-blue">Primeiros Socorros</div>
                         <div class="course-info"><h4>Técnico - 40 horas</h4><div class="stats"><span>254 Alunos</span></div></div>
-                        <div class="card-actions"><button class="btn-primary">Saiba Mais</button></div>
+                        <div class="card-actions">
+                            <a href="cursoPSCRR.html" class="btn-primary" style="display: flex; justify-content: center; align-items: center; text-decoration: none; width: 100%; box-sizing: border-box;">Saiba Mais</a>
+                        </div>
                     </div>
                 </div>
 
@@ -246,7 +249,7 @@
     <script>
         console.log("Teste: O script abriu!");
 
-        // Função que roda assim que o botão é clicado
+        // Função que roda assim que o botão de filtro é clicado
         document.getElementById('btn-filtrar-v2').onclick = function() {
             console.log("Botão filtrar clicado!");
             

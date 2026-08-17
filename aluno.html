@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapacitaPro - Área do Aluno</title>
+    
+    <!-- Se o arquivo aluno.css estiver NA MESMA PASTA do aluno.html: -->
+    <!-- Altere de href="aluno.css" para este caminho: -->
+<link rel="stylesheet" href="aluno.css">
+
+    <!-- SE você criou uma pasta chamada 'css', use a linha de baixo (remova os comentários <!-- -->): -->
+    <!-- <link rel="stylesheet" href="css/aluno.css"> -->
+</head>
+<body>
+
+    <!-- Cabeçalho / Navbar -->
+    <header class="navbar">
+        <div class="logo">Capacita<span>Pro</span></div>
+        <div class="user-profile">
+            <span class="user-name">Olá, <strong>Aluno(a)</strong></span>
+            <div class="user-avatar">A</div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-container">
+        
+        <!-- Banner de Boas-vindas -->
+        <section class="welcome-banner">
+            <div class="banner-content">
+                <h1>Bem-vindo(a) de volta! 🚀</h1>
+                <p>Acompanhe seus treinamentos e continue de onde parou.</p>
+            </div>
+        </section>
+
+        <!-- Seção de Cursos em Andamento -->
+        <section class="courses-section">
+            <h2 class="section-title">Meus Cursos em Andamento</h2>
+            
+            <div class="courses-grid">
+                
+                <!-- Card do Curso 1 -->
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="course-tag">Tecnologia</span>
+                        <h3 class="course-title">Desenvolvimento C# e .NET</h3>
+                        <p class="course-desc">Aprenda a construir APIs modernas e integrar com a web.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="progress-container">
+                            <div class="progress-info">
+                                <span>Progresso</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-primary">Continuar Aula</a>
+                    </div>
+                </article>
+
+                <!-- Card do Curso 2 -->
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="course-tag">Saúde</span>
+                        <h3 class="course-title">Primeiros Socorros no Trabalho</h3>
+                        <p class="course-desc">Capacitação sobre atendimento inicial e procedimentos de emergência.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="progress-container">
+                            <div class="progress-info">
+                                <span>Progresso</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-primary">Continuar Aula</a>
+                    </div>
+                </article>
+
+                <!-- Card do Curso 3 -->
+                <article class="course-card">
+                    <div class="card-header">
+                        <span class="course-tag">Gestão</span>
+                        <h3 class="course-title">Gestão de Projetos Ágeis</h3>
+                        <p class="course-desc">Fundamentos de organização de tarefas e metodologias ágeis.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="progress-container">
+                            <div class="progress-info">
+                                <span>Progresso</span>
+                                <span>10%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 10%;"></div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-primary">Continuar Aula</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

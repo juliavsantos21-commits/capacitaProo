@@ -22,10 +22,10 @@
                 </div>
             </div>
         
-<div class="header-buttons">
-        <a href="login.html" class="btn btn-outline">Entrar</a>
-        <a href="#" class="btn btn-solid">Cadastrar-se</a>
-    </div>
+            <div class="header-buttons">
+                <a href="login.html" class="btn btn-outline">Entrar</a>
+                <a href="#" class="btn btn-solid">Cadastrar-se</a>
+            </div>
         </header>
 
         <div class="progress-container">
@@ -64,11 +64,10 @@
                                 <input type="password" class="glass-input" placeholder="Confirmar Senha">
                                 <i class="fas fa-eye right-icon"></i>
                             </div>
-                            
+                        </form>
                     </div>
                     
                     <div class="info-side">
-                        
                         <div class="info-grid">
                             <div class="info-card glass-light">
                                 <i class="fas fa-bullseye"></i>
@@ -91,7 +90,7 @@
                                     <p>Configure sua estrutura curricular</p>
                                 </div>
                             </div>
-                             <div class="info-card glass-light">
+                            <div class="info-card glass-light">
                                 <i class="fas fa-bullseye"></i>
                                 <div>
                                     <h4>Qual seu objetivo?</h4>
@@ -147,7 +146,8 @@
                                 <option value="outra_particular">Outra Escola Particular</option>
                                 <option value="concluido">Já concluí meus estudos</option>
                             </select>
-                        </div> <div class="input-block">
+                        </div> 
+                        <div class="input-block">
                             <label>Ano de Conclusão ou Atual</label>
                             <select class="glass-select" name="ano_conclusao" required>
                                 <option value="" disabled selected>Selecione o ano...</option>
@@ -175,7 +175,7 @@
                         <textarea class="glass-textarea" rows="4" placeholder="Colar Grade Curricular ou Listar Disciplinas"></textarea>
                     </div>
 
-                    <button class="btn-upload glass-light"><i class="fas fa-paperclip"></i> Upload de Histórico Escolar</button>
+                    <button type="button" class="btn-upload glass-light"><i class="fas fa-paperclip"></i> Upload de Histórico Escolar</button>
                     <p class="info-text">Essas informações são cruciais para nosso algoritmo recomendar cursos que complementem sua formação. Sem isso, não podemos personalizar sua experiência.</p>
 
                     <div class="input-block">
@@ -194,13 +194,12 @@
                     <div class="summary-item"><span>Estrutura Cadastrada</span></div>
                 </div>
                 
-              <button type="button" class="btn-primary-block btn-large" onclick="window.location.href='inicio.html'">Finalizar Cadastro e Efetivar Matrícula</button>
+                <!-- AQUI ESTAVA O ERRO! CORRIGIDO PARA ALUNO.HTML -->
+                <button type="button" class="btn-primary-block btn-large btn-finalizar-cadastro" onclick="window.location.href='aluno.html'">Finalizar Cadastro e Efetivar Matrícula</button>
                 <p class="terms-text">Ao clicar, você concorda com nossos termos e políticas.<br>Sua conta será criada e você receberá as recomendações baseadas na sua grade.</p>
             </section>
 
         </main>
-    </div>
-    </main>
     </div>
 
     <script src="cadastro.js"></script>
