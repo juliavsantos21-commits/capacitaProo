@@ -1,0 +1,232 @@
+/* Navbar Compacta (Igual à Imagem 2) */
+.navbar {
+    background: linear-gradient(90deg, #1f425c 0%, #1d505e 100%);
+    padding: 14px 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Logo apenas em texto */
+.logo-text-only {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo-text-only span {
+    color: #38ef7d; /* Verde vibrante */
+}
+
+/* Área do Usuário */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.user-greeting {
+    color: #d0dbe5;
+    font-size: 0.95rem;
+}
+
+.user-greeting strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Avatar 'A' em círculo verde */
+.user-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #38ef7d;
+    color: #0d3830;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.15rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+/* ==========================================================================
+   Espaçamentos e Cards do Perfil (perfil.css)
+   ========================================================================== */
+
+/* Container principal com respiro lateral e centralizado */
+.main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Banner de boas-vindas com bom espaçamento interno */
+.profile-header {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #ffffff;
+}
+
+.profile-avatar-large {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #2af598;
+    color: #0b4b8a;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Grid em 2 Colunas lado a lado */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Cards com fundo translúcido e espaçamento generoso */
+.profile-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 30px;
+    color: #ffffff;
+}
+
+.profile-card-group {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Cabeçalho dos Cards */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-size: 1.2rem;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Formulário bem espaçado */
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-group input.input-disabled {
+    background: rgba(235, 235, 235, 0.8);
+    cursor: not-allowed;
+}
+
+/* Botão de Ação */
+.btn-primary {
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #2af598;
+    color: #0b4b8a;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #22d682;
+    transform: translateY(-2px);
+}
+
+/* Lista de Certificados espaçada */
+.certificate-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.certificate-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cert-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.btn-download-cert {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Botão de Logout */
+.btn-logout {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: rgba(255, 75, 75, 0.2);
+    border: 1px solid rgba(255, 75, 75, 0.4);
+    color: #ff6b6b;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}

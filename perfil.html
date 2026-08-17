@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapacitaPro - Meu Perfil</title>
+    <!-- CSS base para variáveis/navbar + CSS específico do Perfil -->
+    <link rel="stylesheet" href="aluno.css">
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar do Perfil -->
+    <header class="navbar">
+        <a href="aluno.html" class="logo-text-only">
+            Capacita<span>Pro</span>
+        </a>
+        
+        <!-- Lado direito com Voltar ao Início e Avatar -->
+        <div class="user-profile">
+            <a href="aluno.html" class="back-link">
+                <i class="fa-solid fa-house"></i> Voltar ao Início
+            </a>
+            <a href="perfil.html" style="text-decoration: none;" title="Meu Perfil">
+                <div class="user-avatar">A</div>
+            </a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <!-- Banner de Perfil -->
+        <section class="welcome-banner profile-header">
+            <div class="profile-avatar-large">A</div>
+            <div class="banner-content">
+                <h1>Perfil do Aluno(a)</h1>
+                <p>Gerencie seus dados pessoais, acompanhe seus certificados e segurança.</p>
+            </div>
+        </section>
+
+        <div class="profile-grid">
+            
+            <!-- Card 1: Meus Dados / Alterar Senha -->
+            <div class="profile-card">
+                <div class="card-header">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <h2>Dados Pessoais</h2>
+                </div>
+                
+                <form class="profile-form">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" placeholder="Digite seu Nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="Digite seu e-mail">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senha">Nova Senha</label>
+                        <input type="password" id="senha" placeholder="Deixe em branco para não alterar">
+                    </div>
+
+                    <button type="submit" class="btn-primary">Salvar Alterações</button>
+                </form>
+            </div>
+
+            <!-- Card 2: Meus Certificados e Ações de Conta -->
+            <div class="profile-card-group">
+                
+                <div class="profile-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-award"></i>
+                        <h2>Meus Certificados</h2>
+                    </div>
+
+                    <ul class="certificate-list">
+                        <li>
+                            <div class="cert-info">
+                                <strong>Desenvolvimento C# e .NET</strong>
+                                <small>Concluído em 10/08/2026</small>
+                            </div>
+                            <a href="#" class="btn-download-cert">
+                                <i class="fa-solid fa-download"></i> Baixar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="profile-card logout-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <h2>Sessão</h2>
+                    </div>
+                    <p>Deseja encerrar a sua sessão atual?</p>
+                    <a href="index.html" class="btn-logout">Sair da Conta</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

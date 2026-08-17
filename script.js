@@ -272,4 +272,8 @@ document.addEventListener("DOMContentLoaded", function () {
             filtrarCursos();
         });
     }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 8002778e6693c65ebb6f45c937c1414b6c1453e7
