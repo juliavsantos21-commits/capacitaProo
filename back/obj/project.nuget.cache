@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "fV1o+uzE7vM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tarde.cetafest\\Desktop\\capacitaPro\\back\\back.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tarde.cetafest\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.12\\microsoft.aspnetcore.openapi.9.0.12.nupkg.sha512",
+    "C:\\Users\\tarde.cetafest\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

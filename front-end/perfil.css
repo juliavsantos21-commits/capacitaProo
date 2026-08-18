@@ -1,41 +1,65 @@
-/* Navbar Compacta (Igual à Imagem 2) */
+/* ==========================================================================
+   Navbar e Estilos da Barra do Perfil (Igual à tela de Aulas)
+   ========================================================================== */
 .navbar {
-    background: linear-gradient(90deg, #1f425c 0%, #1d505e 100%);
-    padding: 14px 4%;
+    background: linear-gradient(90deg, #2b589f 0%, #3583c4 100%) !important;
+    padding: 12px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Logo apenas em texto */
-.logo-text-only {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #ffffff;
-    text-decoration: none;
-    letter-spacing: -0.5px;
+/* Estrutura do Logo */
+.logo-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.logo-text-only span {
-    color: #38ef7d; /* Verde vibrante */
+.logo-icon {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1;
+}
+
+.logo-text span {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
 }
 
 /* Área do Usuário */
 .user-profile {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
 }
 
-.user-greeting {
-    color: #d0dbe5;
+/* Botão Voltar ao Início */
+.back-link,
+.back-link:visited {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 600;
     font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s;
 }
 
-.user-greeting strong {
-    color: #ffffff;
-    font-weight: 700;
+.back-link:hover {
+    opacity: 0.85;
 }
 
 /* Avatar 'A' em círculo verde */
@@ -43,7 +67,7 @@
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: #38ef7d;
+    background: #2af598;
     color: #0d3830;
     display: flex;
     align-items: center;
@@ -53,8 +77,9 @@
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+
 /* ==========================================================================
-   Espaçamentos e Cards do Perfil (perfil.css)
+   Espaçamentos e Cards do Perfil
    ========================================================================== */
 
 /* Container principal com respiro lateral e centralizado */
