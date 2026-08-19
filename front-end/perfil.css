@@ -254,4 +254,10 @@
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 75, 75, 0.4);
+    color: #ffffff;
 }

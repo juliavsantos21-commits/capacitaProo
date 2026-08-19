@@ -29,7 +29,7 @@
                 <i class="fa-solid fa-house"></i> Voltar ao Início
             </a>
             <a href="perfil.html" style="text-decoration: none;" title="Meu Perfil">
-                <div class="user-avatar">A</div>
+                <div class="user-avatar" id="avatar-aluno-header">A</div>
             </a>
         </div>
     </header>
@@ -38,9 +38,9 @@
         
         <!-- Banner de Perfil -->
         <section class="welcome-banner profile-header">
-            <div class="profile-avatar-large">A</div>
+            <div class="profile-avatar-large" id="perf-avatar-large">A</div>
             <div class="banner-content">
-                <h1>Perfil do Aluno(a)</h1>
+                <h1 id="perf-titulo-nome">Perfil do Aluno(a)</h1>
                 <p>Gerencie seus dados pessoais, acompanhe seus certificados e segurança.</p>
             </div>
         </section>
@@ -54,7 +54,7 @@
                     <h2>Dados Pessoais</h2>
                 </div>
                 
-                <form class="profile-form">
+                <form class="profile-form" id="form-perfil">
                     <div class="form-group">
                         <label for="nome">Nome Completo</label>
                         <input type="text" id="nome" placeholder="Digite seu Nome">
@@ -63,6 +63,16 @@
                     <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" placeholder="Digite seu e-mail">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="instituicao">Instituição de Ensino / Empresa</label>
+                        <input type="text" id="instituicao" placeholder="Sua instituição">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ano">Ano de Conclusão</label>
+                        <input type="text" id="ano" placeholder="Ano de conclusão">
                     </div>
 
                     <div class="form-group">
@@ -102,7 +112,7 @@
                         <h2>Sessão</h2>
                     </div>
                     <p>Deseja encerrar a sua sessão atual?</p>
-                    <a href="index.html" class="btn-logout">Sair da Conta</a>
+                    <button type="button" id="btn-logout" class="btn-logout" style="cursor: pointer;">Sair da Conta</button>
                 </div>
 
             </div>
@@ -111,5 +121,7 @@
 
     </main>
 
+    <!-- Script JS do projeto -->
+    <script src="script.js"></script>
 </body>
 </html>
