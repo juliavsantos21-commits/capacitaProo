@@ -1,33 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tarde.cetafest\\Desktop\\capacitaPro\\back\\back.csproj": {}
+    "C:\\Users\\tarde.cetafest.LABFIES\\Desktop\\capacitaPro\\back\\back.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tarde.cetafest\\Desktop\\capacitaPro\\back\\back.csproj": {
+    "C:\\Users\\tarde.cetafest.LABFIES\\Desktop\\capacitaPro\\back\\back.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tarde.cetafest\\Desktop\\capacitaPro\\back\\back.csproj",
+        "projectUniqueName": "C:\\Users\\tarde.cetafest.LABFIES\\Desktop\\capacitaPro\\back\\back.csproj",
         "projectName": "back",
-        "projectPath": "C:\\Users\\tarde.cetafest\\Desktop\\capacitaPro\\back\\back.csproj",
-        "packagesPath": "C:\\Users\\tarde.cetafest\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tarde.cetafest\\Desktop\\capacitaPro\\back\\obj\\",
+        "projectPath": "C:\\Users\\tarde.cetafest.LABFIES\\Desktop\\capacitaPro\\back\\back.csproj",
+        "packagesPath": "C:\\Users\\tarde.cetafest.LABFIES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tarde.cetafest.LABFIES\\Desktop\\capacitaPro\\back\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tarde.cetafest\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tarde.cetafest.LABFIES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -40,32 +39,31 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[9.0.12, )"
-            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.2, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.2, )"
+              "version": "[8.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
             }
           },
           "imports": [
@@ -87,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.310/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

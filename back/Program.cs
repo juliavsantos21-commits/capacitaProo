@@ -23,13 +23,17 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddOpenApi();
+// Substituído AddOpenApi por Swagger (.NET 8.0)
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    // Substituído MapOpenApi por SwaggerUI (.NET 8.0)
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
