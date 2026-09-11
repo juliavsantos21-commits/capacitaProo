@@ -1690,3 +1690,186 @@ nav a.active { color: white; font-weight: bold; border-bottom: 2px solid white; 
     gap: 12px;
     align-items: center;
 }
+/* ========================================== */
+/* TOAST NOTIFICATIONS (FEEDBACK VISUAL)      */
+/* ========================================== */
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    min-width: 250px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    background: rgba(17, 24, 39, 0.9); /* Fundo escuro transparente */
+    backdrop-filter: blur(10px);
+    border-left: 5px solid #4cd137; /* Borda verde padrão */
+    color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    animation: slideIn 0.3s ease forwards;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.toast.error {
+    border-left-color: #ff4757; /* Borda vermelha para erros */
+}
+
+.toast i {
+    font-size: 1.2rem;
+}
+
+.toast.success i { color: #4cd137; }
+.toast.error i { color: #ff4757; }
+
+@keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; transform: translateX(100%); }
+}
+/* ========================================== */
+/* FORÇA DA SENHA (PONTO 2)                   */
+/* ========================================== */
+.password-strength-container {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+.strength-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+/* ========================================== */
+/* CORREÇÃO DOS INPUTS DE SENHA              */
+/* ========================================== */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-group .glass-input {
+    width: 100%;
+    padding-right: 45px !important; /* Espaço para o texto não ficar sob o olho */
+}
+
+.input-group .right-icon {
+    position: absolute;
+    right: 15px;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
+    cursor: pointer;
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.7);
+}
+/* ==========================================
+   CORREÇÃO DEFINITIVA DO CAMPO DE SENHA
+   ========================================== */
+
+/* Container com posicionamento relativo obrigatório */
+.input-group {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 18px !important;
+}
+
+/* O Campo de Texto (Abre espaço nas duas pontas) */
+.glass-input {
+    width: 100% !important;
+    height: 50px !important;
+    padding-left: 45px !important;  /* Espaço para o cadeado (esquerda) */
+    padding-right: 45px !important; /* Espaço para o olho (direita) */
+    box-sizing: border-box !important;
+    font-size: 15px !important;
+}
+
+/* Ícone do Cadeado / Envelope (Esquerda) */
+.input-group .icon-left {
+    position: absolute !important;
+    left: 15px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    pointer-events: none !important;
+    color: #a0a0a0 !important;
+    z-index: 5 !important;
+    font-size: 16px !important;
+}
+
+/* Ícone do Olho (Forçado para a Direita) */
+.input-group .icon-right {
+    position: absolute !important;
+    right: 15px !important;
+    left: auto !important; /* Cancela qualquer alinhamento à esquerda */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    cursor: pointer !important;
+    color: #a0a0a0 !important;
+    z-index: 5 !important;
+    font-size: 16px !important;
+    padding: 5px !important;
+}
+
+.input-group .icon-right:hover {
+    color: #4cd137 !important;
+}
+.btn-google-block {
+    width: 100%;
+    height: 48px;
+    background-color: #ffffff;
+    color: #333333;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-google-block:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-google-block i {
+    color: #ea4335;
+    font-size: 18px;
+}

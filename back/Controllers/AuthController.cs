@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using back;
 using System.Linq;
+using System;
 
 namespace back.Controllers
 {
@@ -70,11 +71,40 @@ namespace back.Controllers
                 usuario = new { nome = alunoEncontrado.Nome, email = alunoEncontrado.Email }
             });
         }
+
+        // --- NOVO MÉTODO: ATUALIZAR PERFIL ---
+        [HttpPut("atualizar-perfil")]
+        public IActionResult AtualizarPerfil([FromBody] AtualizarPerfilDto dto)
+        {
+            var aluno = _context.Alunos.FirstOrDefault(a => a.Email.ToLower() == dto.Email.ToLower());
+            
+            if (aluno == null) 
+            {
+                return NotFound(new { mensagem = "Aluno não encontrado." });
+            }
+
+            // Atualiza os dados
+            aluno.Nome = dto.Nome;
+            aluno.Instituicao = dto.Instituicao;
+            
+            // Salva no banco de dados
+            _context.SaveChanges();
+            
+            return Ok(new { mensagem = "Perfil atualizado com sucesso no banco de dados!" });
+        }
     }
 
     public class LoginDTO
     {
         public string Email { get; set; } = string.Empty;
         public string Senha { get; set; } = string.Empty;
+    }
+
+    // --- NOVA CLASSE PARA RECEBER OS DADOS DO PERFIL ---
+    public class AtualizarPerfilDto
+    {
+        public string Email { get; set; } = string.Empty;
+        public string Nome { get; set; } = string.Empty;
+        public string Instituicao { get; set; } = string.Empty;
     }
 }

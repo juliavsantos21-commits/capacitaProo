@@ -36,18 +36,15 @@
                         <div class="input-group">
                             <i class="fas fa-lock icon-left"></i>
                             <input type="password" id="login-senha" class="glass-input" placeholder="Senha" required>
-                            <i class="fas fa-eye icon-right"></i>
-                        </div>
-
-                        <div class="checkbox-group">
-                            <label>
-                                <input type="checkbox" checked>
-                                <span class="custom-checkbox"><i class="fas fa-check"></i></span>
-                                Lembrar-me
-                            </label>
+                            <i class="fas fa-eye icon-right" style="cursor: pointer;" title="Mostrar Senha"></i>
                         </div>
 
                         <button type="submit" class="btn-green-block">Entrar</button>
+
+                        <!-- Botão do Google adicionado -->
+                        <button type="button" id="btn-google" class="btn-google-block">
+                            <i class="fab fa-google"></i> Entrar com o Google
+                        </button>
                     </form>
 
                     <div class="form-links">
@@ -67,6 +64,9 @@
         <p>Ainda não tem uma conta? <a href="cadastro.html" style="color: #4cd137; text-decoration: none; font-weight: bold;">Cadastrar-se</a></p>
     </footer>
 
+    <!-- Scripts do Firebase adicionados antes do script.js -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
