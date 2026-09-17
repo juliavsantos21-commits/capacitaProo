@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ==========================================
-    // 3. BARRA DE FORÇA DA SENHA (SEM EXIGÊNCIA DE 4 NÚMEROS)
+    // 3. BARRA DE FORÇA DA SENHA
     // ==========================================
     const inputSenhaCadastro = document.getElementById('cad-senha');
     if (inputSenhaCadastro) {
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ==========================================
-    // 7. UPLOAD DE CURRÍCULO (FEEDBACK)
+    // 7. UPLOAD DE CURRÍCULO
     // ==========================================
     const inputCurriculo = document.getElementById("cad-curriculo");
     const labelArquivo = document.getElementById("nome-arquivo-selecionado");
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ==========================================
-    // 8. PROCESSAR CADASTRO (C# API INTEGRATION)
+    // 8. PROCESSAR CADASTRO
     // ==========================================
     async function processarCadastro(e) {
         if (e) { e.preventDefault(); e.stopPropagation(); }
@@ -283,7 +283,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 body: JSON.stringify(dadosAluno)
             });
 
-            // Lê como texto primeiro para evitar o erro de JSON vazio!
             const texto = await response.text();
             const data = texto ? JSON.parse(texto) : {};
 
@@ -392,10 +391,68 @@ document.addEventListener("DOMContentLoaded", function () {
     configurarLink("nav-contato", "contato.html");
     configurarLink("btn-entrar", "login.html");
     configurarLink("btn-cadastrar", "cadastro.html");
+
+    // ==========================================
+    // 12. EVENTO BOTÃO LOGIN COM GOOGLE (FIREBASE)
+    // ==========================================
+    const btnGoogle = document.getElementById("btn-google");
+    if (btnGoogle) {
+        btnGoogle.addEventListener("click", async () => {
+            if (typeof firebase === "undefined" || !firebase.auth) {
+                mostrarToast("Erro: Bibliotecas do Firebase não foram carregadas.", "erro");
+                return;
+            }
+
+            const provider = new firebase.auth.GoogleAuthProvider();
+
+            // Força a exibição da janela para selecionar a conta do Google
+            provider.setCustomParameters({
+                prompt: 'select_account'
+            });
+
+            try {
+                // Encerra sessão ativa anterior para abrir a janela do Google limpa
+                await firebase.auth().signOut();
+
+                const result = await firebase.auth().signInWithPopup(provider);
+                const user = result.user;
+
+                localStorage.setItem("usuarioLogado", JSON.stringify({
+                    nome: user.displayName,
+                    email: user.email,
+                    foto: user.photoURL
+                }));
+
+                mostrarToast(`Bem-vindo(a), ${user.displayName}!`, "sucesso");
+                setTimeout(() => window.location.href = "aluno.html", 1000);
+
+            } catch (error) {
+                console.error("Erro na autenticação Google:", error);
+                mostrarToast("Falha ao autenticar com o Google: " + error.message, "erro");
+            }
+        });
+    }
 });
 
 // ==========================================
-// 12. EMISSÃO DE CERTIFICADOS (jsPDF)
+// 13. CONFIGURAÇÃO DO FIREBASE (FIREBASE AUTH)
+// ==========================================
+const firebaseConfig = {
+  apiKey: "AIzaSyATHp7t5e3o5CCHF4Nhxta9lqrr4NdZ1rk",
+  authDomain: "capacitapro-9b85d.firebaseapp.com",
+  projectId: "capacitapro-9b85d",
+  storageBucket: "capacitapro-9b85d.firebasestorage.app",
+  messagingSenderId: "914867735981",
+  appId: "1:914867735981:web:9c065d108063f5fedfe524",
+  measurementId: "G-8TBHYGS2SM"
+};
+
+if (typeof firebase !== "undefined" && !firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
+// ==========================================
+// 14. EMISSÃO DE CERTIFICADOS (jsPDF)
 // ==========================================
 window.baixarCertificado = function (nomeCurso) {
     if (!window.jspdf) {
@@ -433,66 +490,3 @@ window.baixarCertificado = function (nomeCurso) {
 
     doc.save(`Certificado_${nomeCurso.replace(/\s/g, '_')}.pdf`);
 };
-const btnGoogle = document.getElementById("btn-google");
-
-if (btnGoogle) {
-    btnGoogle.addEventListener("click", () => {
-        // ID do seu cliente obtido no Google Cloud ou Firebase
-        const clientId = "914867735981-SEU_CLIENT_ID.apps.googleusercontent.com"; 
-        
-        // Para onde o Google deve devolver o usuário após o login
-        const redirectUri = encodeURIComponent(window.location.href); 
-        const scope = encodeURIComponent("email profile");
-
-        // Redireciona a aba inteira DIRETO para a tela de login do Google
-        window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=${scope}`;
-    });
-}
-// ==========================================
-// CONFIGURAÇÃO DO FIREBASE (FIREBASE AUTH)
-// ==========================================
-const firebaseConfig = {
-  apiKey: "AIzaSyATHp7t5e3o5CCHF4Nhxta9lqrr4NdZ1rk",
-  authDomain: "capacitapro-9b85d.firebaseapp.com",
-  projectId: "capacitapro-9b85d",
-  storageBucket: "capacitapro-9b85d.firebasestorage.app",
-  messagingSenderId: "914867735981",
-  appId: "1:914867735981:web:9c065d108063f5fedfe524",
-  measurementId: "G-8TBHYGS2SM"
-};
-
-// Inicializa o Firebase
-if (typeof firebase !== "undefined" && !firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
-
-// Evento do botão de login do Google
-document.addEventListener("DOMContentLoaded", () => {
-    const btnGoogle = document.getElementById("btn-google");
-
-    if (btnGoogle) {
-        btnGoogle.addEventListener("click", async () => {
-            const provider = new firebase.auth.GoogleAuthProvider();
-
-            try {
-                // Abre a janela oficial de login do Google
-                const result = await firebase.auth().signInWithPopup(provider);
-                const user = result.user;
-
-                // Salva os dados do usuário autenticado no navegador
-                localStorage.setItem("usuarioLogado", JSON.stringify({
-                    nome: user.displayName,
-                    email: user.email,
-                    foto: user.photoURL
-                }));
-
-                // Redireciona para a área do aluno
-                window.location.href = "aluno.html";
-
-            } catch (error) {
-                console.error("Erro na autenticação:", error);
-                alert("Falha ao autenticar com o Google: " + error.message);
-            }
-        });
-    }
-});
