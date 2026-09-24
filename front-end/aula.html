@@ -27,7 +27,7 @@
                 <i class="fa-solid fa-house"></i> Voltar ao Início
             </a>
             <a href="perfil.html" style="text-decoration: none;" title="Meu Perfil">
-                <div class="user-avatar">A</div>
+                <div class="user-avatar" id="avatar-aluno-header">A</div>
             </a>
         </div>
     </header>
@@ -40,11 +40,17 @@
             </div>
             
             <div class="lesson-info">
-                <h2>01. Introdução à Plataforma .NET</h2>
-                <p>Nesta aula você aprenderá os conceitos fundamentais da arquitetura .NET e como configurar seu ambiente de desenvolvimento do zero.</p>
+                <h2 id="aula-titulo-curso">01. Introdução à Plataforma</h2>
+                <p id="aula-desc-curso">Nesta aula você aprenderá os conceitos fundamentais do seu treinamento.</p>
                 
-                <div class="lesson-actions">
+                <div class="lesson-actions" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
                     <button class="btn-secondary"><i class="fa-solid fa-chevron-left"></i> Aula Anterior</button>
+                    
+                    <!-- BOTÃO ADICIONADO PARA CONCLUIR A AULA ATUAL -->
+                    <button id="btn-concluir-aula" class="btn-primary" style="background-color: #2e7d32;" onclick="window.concluirAulaAtual('aula_01')">
+                        <i class="fa-solid fa-circle-check"></i> Marcar como Concluída
+                    </button>
+
                     <button class="btn-primary">Próxima Aula <i class="fa-solid fa-chevron-right"></i></button>
                 </div>
             </div>
@@ -56,37 +62,40 @@
             <div class="module-item">
                 <h4>Módulo 1: Primeiros Passos</h4>
                 <ul class="lesson-list">
-                    <li class="completed">
+                    <li class="completed" data-aula-id="aula_00">
                         <i class="fa-solid fa-circle-check"></i>
-                        <span>Instalação do SDK</span>
+                        <span>Apresentação do Curso</span>
                     </li>
-                    <li class="current">
+                    <li class="current" data-aula-id="aula_01">
                         <i class="fa-solid fa-circle-play"></i>
-                        <span>Introdução ao .NET</span>
+                        <span>Aula 01 - Fundamentos</span>
                     </li>
-                    <li>
+                    <li data-aula-id="aula_02">
                         <i class="fa-regular fa-circle"></i>
-                        <span>Criando a primeira API</span>
+                        <span>Aula 02 - Prática Inicial</span>
                     </li>
                 </ul>
             </div>
 
             <div class="module-item">
-                <h4>Módulo 2: C# Avançado</h4>
+                <h4>Módulo 2: Conteúdo Avançado</h4>
                 <ul class="lesson-list">
-                    <li>
+                    <li data-aula-id="aula_03">
                         <i class="fa-regular fa-circle"></i>
-                        <span>LINQ e Coleções</span>
+                        <span>Desenvolvimento Prático</span>
                     </li>
-                    <li>
+                    <li data-aula-id="aula_04">
                         <i class="fa-regular fa-circle"></i>
-                        <span>Programação Assíncrona</span>
+                        <span>Projeto Final</span>
                     </li>
                 </ul>
             </div>
         </aside>
 
     </div>
+
+    <!-- Script JS para carregar os dados dinâmicos do aluno e curso -->
+    <script src="script.js"></script>
 
 </body>
 </html>

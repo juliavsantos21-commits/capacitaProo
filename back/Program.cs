@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Substituído AddOpenApi por Swagger (.NET 8.0)
+// Suporte ao Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -31,17 +31,16 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    // Substituído MapOpenApi por SwaggerUI (.NET 8.0)
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
-// 2. Aplica a política de CORS
+// 2. Aplica a política de CORS liberada
 app.UseCors("LiberarFrontEnd");
 
-// 3. Mapeia os seus Controllers (ex: AuthController)
+// 3. Mapeia os Controllers (ex: AuthController)
 app.MapControllers();
 
 app.Run();

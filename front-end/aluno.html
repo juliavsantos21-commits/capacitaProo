@@ -41,102 +41,28 @@
 
         <!-- Seção de Cursos em Andamento -->
         <section class="courses-section">
-            <h2 class="section-title">Meus Cursos em Andamento</h2>
+            <h2 class="section-title">Meu Curso de Capacitação</h2>
             
-            <!-- NOVOS BOTÕES DE FILTRO -->
-            <div style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
-                <button class="btn-filtro active" data-filter="all" style="padding: 8px 16px; cursor: pointer; border-radius: 4px; border: 1px solid #ccc;">Todos</button>
-                <button class="btn-filtro" data-filter="Tecnologia" style="padding: 8px 16px; cursor: pointer; border-radius: 4px; border: 1px solid #ccc;">Tecnologia</button>
-                <button class="btn-filtro" data-filter="Saúde" style="padding: 8px 16px; cursor: pointer; border-radius: 4px; border: 1px solid #ccc;">Saúde</button>
-                <button class="btn-filtro" data-filter="Gestão" style="padding: 8px 16px; cursor: pointer; border-radius: 4px; border: 1px solid #ccc;">Gestão</button>
-            </div>
-            
-            <div class="courses-grid">
+            <div class="courses-grid" style="display: flex; justify-content: center;">
                 
-                <!-- Card do Curso 1 -->
-                <article class="course-card">
+                <!-- CARD DINÂMICO DO CURSO SELECIONADO -->
+                <article class="course-card" style="width: 100%; max-width: 450px;">
                     <div class="card-header">
-                        <span class="course-tag">Tecnologia</span>
-                        <h3 class="course-title">Desenvolvimento C# e .NET</h3>
-                        <p class="course-desc">Aprenda a construir APIs modernas e integrar com a web.</p>
+                        <span class="course-tag" id="tag-area-aluno">Área Selecionada</span>
+                        <h3 class="course-title" id="curso-aluno">Carregando curso...</h3>
+                        <p class="course-desc">Seu curso em andamento na plataforma CapacitaPro.</p>
                     </div>
                     <div class="card-footer">
                         <div class="progress-container">
                             <div class="progress-info">
                                 <span>Progresso</span>
-                                <span>45%</span>
+                                <span>0%</span>
                             </div>
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 45%;"></div>
+                                <div class="progress-fill" style="width: 0%;"></div>
                             </div>
                         </div>
-                        <a href="aula.html" class="btn-primary" style="text-decoration: none; text-align: center; display: block;">Continuar Aula</a>
-                    </div>
-                </article>
-
-                <!-- Card do Curso 2 -->
-                <article class="course-card">
-                    <div class="card-header">
-                        <span class="course-tag">Saúde</span>
-                        <h3 class="course-title">Primeiros Socorros no Trabalho</h3>
-                        <p class="course-desc">Capacitação sobre atendimento inicial e procedimentos de emergência.</p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="progress-container">
-                            <div class="progress-info">
-                                <span>Progresso</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 80%;"></div>
-                            </div>
-                        </div>
-                        <a href="aula.html" class="btn-primary" style="text-decoration: none; text-align: center; display: block;">Continuar Aula</a>
-                    </div>
-                </article>
-
-                <!-- Card do Curso 3 -->
-                <article class="course-card">
-                    <div class="card-header">
-                        <span class="course-tag">Gestão</span>
-                        <h3 class="course-title">Gestão de Projetos Ágeis</h3>
-                        <p class="course-desc">Fundamentos de organização de tarefas e metodologias ágeis.</p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="progress-container">
-                            <div class="progress-info">
-                                <span>Progresso</span>
-                                <span>10%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 10%;"></div>
-                            </div>
-                        </div>
-                        <a href="aula.html" class="btn-primary" style="text-decoration: none; text-align: center; display: block;">Continuar Aula</a>
-                    </div>
-                </article>
-
-                <!-- NOVO CARD 4: CURSO CONCLUÍDO (COM CERTIFICADO) -->
-                <article class="course-card">
-                    <div class="card-header">
-                        <span class="course-tag">Tecnologia</span>
-                        <h3 class="course-title">Segurança da Informação</h3>
-                        <p class="course-desc">Conceitos básicos sobre como se proteger no ambiente digital.</p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="progress-container">
-                            <div class="progress-info">
-                                <span>Progresso</span>
-                                <span style="color: #2af598; font-weight: bold;">100%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 100%; background: #2af598;"></div>
-                            </div>
-                        </div>
-                        <!-- BOTÃO DE BAIXAR CERTIFICADO -->
-                        <button onclick="window.baixarCertificado('Segurança da Informação')" class="btn-primary" style="width: 100%; border: none; cursor: pointer; background: #2af598; color: #0b4b8a; font-weight: bold;">
-                            <i class="fa-solid fa-file-pdf"></i> Baixar Certificado
-                        </button>
+                        <a href="aula.html" class="btn-primary" style="text-decoration: none; text-align: center; display: block; margin-top: 15px;">Iniciar Aula</a>
                     </div>
                 </article>
 
@@ -145,7 +71,7 @@
 
     </main>
 
-    <!-- BIBLIOTECA JSPDF PARA GERAR O CERTIFICADO -->
+    <!-- BIBLIOTECA JSPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     
     <!-- Script JS do projeto -->

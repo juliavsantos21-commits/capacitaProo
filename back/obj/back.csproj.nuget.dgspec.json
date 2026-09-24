@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tarde.cetafest.LABFIES\\Desktop\\capacitaPro\\back\\back.csproj": {}
+    "C:\\Users\\tarde.cetafest.LABFIES\\Downloads\\capacitaPro\\back\\back.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tarde.cetafest.LABFIES\\Desktop\\capacitaPro\\back\\back.csproj": {
+    "C:\\Users\\tarde.cetafest.LABFIES\\Downloads\\capacitaPro\\back\\back.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tarde.cetafest.LABFIES\\Desktop\\capacitaPro\\back\\back.csproj",
+        "projectUniqueName": "C:\\Users\\tarde.cetafest.LABFIES\\Downloads\\capacitaPro\\back\\back.csproj",
         "projectName": "back",
-        "projectPath": "C:\\Users\\tarde.cetafest.LABFIES\\Desktop\\capacitaPro\\back\\back.csproj",
+        "projectPath": "C:\\Users\\tarde.cetafest.LABFIES\\Downloads\\capacitaPro\\back\\back.csproj",
         "packagesPath": "C:\\Users\\tarde.cetafest.LABFIES\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tarde.cetafest.LABFIES\\Desktop\\capacitaPro\\back\\obj\\",
+        "outputPath": "C:\\Users\\tarde.cetafest.LABFIES\\Downloads\\capacitaPro\\back\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tarde.cetafest.LABFIES\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -49,21 +49,21 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[7.0.20, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[7.0.20, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[7.0.20, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.6.2, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

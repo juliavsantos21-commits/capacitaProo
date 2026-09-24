@@ -37,8 +37,9 @@
         </div>
 
         <main class="container">
-            <form class="form-cadastro" id="form-cadastro-main" onsubmit="return false;">
+            <form class="form-cadastro" id="form-cadastro-main" onsubmit="window.executarCadastro(event); return false;">
                 
+                <!-- PASSO 1: DADOS DE ACESSO -->
                 <section class="step-section glass-panel">
                     <div class="step-grid">
                         <div class="form-side">
@@ -47,22 +48,31 @@
                             
                             <div class="input-group">
                                 <i class="fas fa-user"></i>
-                                <input type="text" id="cad-nome" class="glass-input" placeholder="Nome Completo">
+                                <input type="text" id="cad-nome" class="glass-input" placeholder="Nome Completo" required>
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-envelope"></i>
-                                <input type="email" id="cad-email" class="glass-input" placeholder="E-mail">
+                                <input type="email" id="cad-email" class="glass-input" placeholder="E-mail" required>
                             </div>
+                            
+                            <!-- CAMPO DE SENHA COM MEDIDOR -->
                             <div class="input-group">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" id="cad-senha" class="glass-input" placeholder="Senha">
-                                <!-- Adicionado cursor: pointer -->
+                                <input type="password" id="cad-senha" class="glass-input" placeholder="Senha" required oninput="window.validarForcaSenha(this.value)">
                                 <i class="fas fa-eye right-icon" style="cursor: pointer;" title="Mostrar Senha"></i>
                             </div>
+
+                            <!-- INDICADOR VISUAL DE FORÇA DA SENHA -->
+                            <div id="password-strength-container" style="margin-top: -5px; margin-bottom: 15px; display: none;">
+                                <div style="height: 6px; width: 100%; background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden;">
+                                    <div id="password-strength-bar" style="height: 100%; width: 0%; transition: all 0.3s ease;"></div>
+                                </div>
+                                <span id="password-strength-text" style="font-size: 0.8rem; margin-top: 4px; display: block; font-weight: 600;"></span>
+                            </div>
+
                             <div class="input-group">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" id="cad-confirma-senha" class="glass-input" placeholder="Confirmar Senha">
-                                <!-- Adicionado cursor: pointer -->
+                                <input type="password" id="cad-confirma-senha" class="glass-input" placeholder="Confirmar Senha" required>
                                 <i class="fas fa-eye right-icon" style="cursor: pointer;" title="Mostrar Senha"></i>
                             </div>
                         </div>
@@ -102,26 +112,66 @@
                     </div>
                 </section>
 
+                <!-- PASSO 2 E 3: OBJETIVO E CURSO -->
                 <section class="step-section glass-panel">
                     <h2>Passo 2 e 3: Escolha seu Objetivo e Curso para Matrícula</h2>
                     
-                    <div class="goal-selector glass-light">
-                        <div class="goal-title">
-                            <i class="fas fa-bullseye"></i>
-                            <div>
-                                <h3>Qual seu objetivo?</h3>
-                                <p>Selecione a área para desbloquear as recomendações personalizadas.</p>
+                    <div class="glass-light" style="padding: 24px; border-radius: 12px; display: block; width: 100%; box-sizing: border-box;">
+                        
+                        <!-- PARTE 1: OBJETIVO -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; width: 100%;">
+                            <div class="goal-title" style="display: flex; align-items: center; gap: 12px; margin: 0;">
+                                <i class="fas fa-bullseye" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.1rem; color: #fff;">Qual seu objetivo?</h3>
+                                    <p style="margin: 3px 0 0 0; font-size: 0.85rem; opacity: 0.8;">Selecione a área para desbloquear as recomendações personalizadas.</p>
+                                </div>
                             </div>
+                            <select class="glass-select" id="cad-area" style="width: 280px; max-width: 100%;">
+                                <option value="">Selecione uma área</option>
+                                <option value="Área Técnica">Área Técnica</option>
+                                <option value="Área Operacional">Área Operacional</option>
+                                <option value="Área Administrativa">Área Administrativa</option>
+                            </select>
                         </div>
-                        <select class="glass-select" id="cad-area">
-                            <option value="">Selecione uma área</option>
-                            <option value="Área Técnica">Área Técnica</option>
-                            <option value="Área Operacional">Área Operacional</option>
-                            <option value="Área Administrativa">Área Administrativa</option>
-                        </select>
+
+                        <hr style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.15); margin: 20px 0;">
+
+                        <!-- PARTE 2: CURSO DESEJADO -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; width: 100%;">
+                            <div class="goal-title" style="display: flex; align-items: center; gap: 12px; margin: 0;">
+                                <i class="fas fa-book-open" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h3 style="margin: 0; font-size: 1.1rem; color: #fff;">Selecione o Curso Desejado</h3>
+                                    <p style="margin: 3px 0 0 0; font-size: 0.85rem; opacity: 0.8;">Escolha o curso no qual deseja se matricular agora.</p>
+                                </div>
+                            </div>
+                            <select class="glass-select" id="cad-curso" style="width: 280px; max-width: 100%;">
+                                <option value="" disabled selected>Escolha um curso...</option>
+                                <option value="Assistente Contábil">Assistente Contábil</option>
+                                <option value="Atendimento ao Cliente">Atendimento ao Cliente</option>
+                                <option value="Brigada de Incêndio">Brigada de Incêndio</option>
+                                <option value="Eletrônica Básica">Eletrônica Básica</option>
+                                <option value="Energia Solar Fotovoltaica">Energia Solar Fotovoltaica</option>
+                                <option value="Finanças para Iniciantes">Finanças para Iniciantes</option>
+                                <option value="Gestão de Projetos">Gestão de Projetos</option>
+                                <option value="Liderança e Gestão">Liderança e Gestão</option>
+                                <option value="Logística Avançada">Logística Avançada</option>
+                                <option value="Lógica de Programação">Lógica de Programação</option>
+                                <option value="Manutenção Industrial">Manutenção Industrial</option>
+                                <option value="Operador de Empilhadeira">Operador de Empilhadeira</option>
+                                <option value="Primeiros Socorros">Primeiros Socorros</option>
+                                <option value="Programação Python">Programação Python</option>
+                                <option value="Recursos Humanos">Recursos Humanos</option>
+                                <option value="Redes de Computadores">Redes de Computadores</option>
+                                <option value="Segurança do Trabalho (NR10)">Segurança do Trabalho (NR10)</option>
+                            </select>
+                        </div>
+
                     </div>
                 </section>
 
+                <!-- PASSO 4: ESTRUTURA CURRICULAR -->
                 <section class="step-section glass-panel">
                     <h2>Passo 4: Sua Grade e Estrutura Curricular Atual</h2>
                     <div class="curriculum-form">
@@ -132,19 +182,19 @@
                                 <label>Sua Instituição de Ensino Atual/Última</label>
                                 <select class="glass-select" name="instituicao" id="cad-instituicao">
                                     <option value="" disabled selected>Selecione sua instituição...</option>
-                                    <option value="ifs_estancia">IFS - Instituto Federal de Sergipe (Campus Estância)</option>
-                                    <option value="senai_estancia">SENAI - Estância</option>
-                                    <option value="walter_franco">Centro de Excelência Senador Walter Franco</option>
-                                    <option value="arabela_ribeiro">Centro de Excelência Arabela Ribeiro</option>
-                                    <option value="gilson_amado">Colégio Estadual Gilson Amado</option>
-                                    <option value="constancio_vieira">Escola Estadual Constâncio Vieira</option>
-                                    <option value="outra_estadual">Outra Escola Estadual</option>
-                                    <option value="cscj">Colégio Sagrado Coração de Jesus (CSCJ)</option>
-                                    <option value="escola_criativa">Centro Educacional Criativo (Escola Criativa)</option>
-                                    <option value="modulo">Centro Educacional Módulo</option>
-                                    <option value="haroldo_rocha">Escola Haroldo Rocha</option>
-                                    <option value="outra_particular">Outra Escola Particular</option>
-                                    <option value="concluido">Já concluí meus estudos</option>
+                                    <option value="IFS - Instituto Federal de Sergipe (Campus Estância)">IFS - Instituto Federal de Sergipe (Campus Estância)</option>
+                                    <option value="SENAI - Estância">SENAI - Estância</option>
+                                    <option value="Centro de Excelência Senador Walter Franco">Centro de Excelência Senador Walter Franco</option>
+                                    <option value="Centro de Excelência Arabela Ribeiro">Centro de Excelência Arabela Ribeiro</option>
+                                    <option value="Colégio Estadual Gilson Amado">Colégio Estadual Gilson Amado</option>
+                                    <option value="Escola Estadual Constâncio Vieira">Escola Estadual Constâncio Vieira</option>
+                                    <option value="Outra Escola Estadual">Outra Escola Estadual</option>
+                                    <option value="Colégio Sagrado Coração de Jesus (CSCJ)">Colégio Sagrado Coração de Jesus (CSCJ)</option>
+                                    <option value="Centro Educacional Criativo (Escola Criativa)">Centro Educacional Criativo (Escola Criativa)</option>
+                                    <option value="Centro Educacional Módulo">Centro Educacional Módulo</option>
+                                    <option value="Escola Haroldo Rocha">Escola Haroldo Rocha</option>
+                                    <option value="Outra Escola Particular">Outra Escola Particular</option>
+                                    <option value="Já concluí meus estudos">Já concluí meus estudos</option>
                                 </select>
                             </div> 
                             <div class="input-block">
@@ -165,7 +215,7 @@
                                     <option value="2017">2017</option>
                                     <option value="2016">2016</option>
                                     <option value="2015">2015</option>
-                                    <option value="antes_2015">Antes de 2015</option>
+                                    <option value="Antes de 2015">Antes de 2015</option>
                                 </select>
                             </div>
                         </div>
@@ -192,16 +242,19 @@
                     </div>
                 </section>
 
+                <!-- RESUMO -->
                 <section class="step-section glass-panel summary-section">
                     <h2>Resumo do Cadastro & Matrícula</h2>
                     <div class="summary-box glass-light">
-                        <div class="summary-item"><span>Nome</span></div>
-                        <div class="summary-item"><span>E-mail</span></div>
-                        <div class="summary-item"><span>Curso Escolhido</span></div>
-                        <div class="summary-item"><span>Estrutura Cadastrada</span></div>
+                        <div class="summary-item"><span>Nome:</span> <strong id="resumo-nome">-</strong></div>
+                        <div class="summary-item"><span>E-mail:</span> <strong id="resumo-email">-</strong></div>
+                        <div class="summary-item"><span>Curso Escolhido:</span> <strong id="resumo-curso">-</strong></div>
+                        <div class="summary-item"><span>Estrutura Cadastrada:</span> <strong id="resumo-instituicao">-</strong></div>
                     </div>
                     
-                    <button type="button" id="btn-finalizar-submit" class="btn-primary-block btn-large btn-finalizar-cadastro">Finalizar Cadastro e Efetivar Matrícula</button>
+                    <button type="submit" id="btn-finalizar-submit" class="btn-primary-block btn-large btn-finalizar-cadastro">
+                        Finalizar Cadastro e Efetivar Matrícula
+                    </button>
                     <p class="terms-text">Ao clicar, você concorda com nossos termos e políticas.<br>Sua conta será criada e você receberá as recomendações baseadas na sua grade.</p>
                 </section>
 
