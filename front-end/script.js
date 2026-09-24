@@ -55,7 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ==========================================
+<<<<<<< HEAD
     // 3. ATUALIZAÇÃO DINÂMICA DO RESUMO DO CADASTRO
+=======
+    // 3. BARRA DE FORÇA DA SENHA
+>>>>>>> f891f860bac6bbf893f2e0039e6b31ef0211fe29
     // ==========================================
     const inNome = document.getElementById("cad-nome");
     const inEmail = document.getElementById("cad-email");
@@ -156,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btnLogout.addEventListener("click", window.sairDaConta);
     }
 
+<<<<<<< HEAD
     // Inicializar barras de progresso e estado da tela de aula se aplicável
     if (typeof window.atualizarBarraProgresso === "function") {
         window.atualizarBarraProgresso();
@@ -167,6 +172,245 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ==========================================
 // 6. FUNÇÃO DE MEDIÇÃO DA FORÇA DA SENHA
+=======
+    // ==========================================
+    // 7. UPLOAD DE CURRÍCULO
+    // ==========================================
+    const inputCurriculo = document.getElementById("cad-curriculo");
+    const labelArquivo = document.getElementById("nome-arquivo-selecionado");
+    if (inputCurriculo && labelArquivo) {
+        inputCurriculo.addEventListener("change", function () {
+            if (this.files && this.files.length > 0) {
+                labelArquivo.textContent = `📎 Arquivo: ${this.files[0].name}`;
+                labelArquivo.style.color = "#2af598";
+            } else {
+                labelArquivo.textContent = "Nenhum arquivo selecionado";
+            }
+        });
+    }
+
+    // ==========================================
+    // 8. PROCESSAR CADASTRO
+    // ==========================================
+    async function processarCadastro(e) {
+        if (e) { e.preventDefault(); e.stopPropagation(); }
+
+        const nomeVal = document.getElementById("cad-nome")?.value.trim() || "";
+        const emailVal = document.getElementById("cad-email")?.value.trim() || "";
+        const senhaVal = document.getElementById("cad-senha")?.value || "";
+        const confirmaSenhaVal = document.getElementById("cad-confirma-senha")?.value || "";
+
+        if (!nomeVal || !emailVal || !senhaVal) {
+            mostrarToast("Preencha todos os campos obrigatórios!", "erro");
+            return false;
+        }
+
+        if (!emailRegex.test(emailVal)) {
+            mostrarToast("Insira um e-mail válido!", "erro");
+            return false;
+        }
+
+        if (senhaVal.length < 6) {
+            mostrarToast("A senha deve ter pelo menos 6 caracteres!", "erro");
+            return false;
+        }
+
+        if (senhaVal !== confirmaSenhaVal) {
+            mostrarToast("As senhas não coincidem!", "erro");
+            return false;
+        }
+
+        const arquivo = inputCurriculo?.files ? inputCurriculo.files[0] : null;
+
+        const dadosAluno = {
+            Nome: nomeVal,
+            Email: emailVal,
+            Senha: senhaVal,
+            Instituicao: document.getElementById("cad-instituicao")?.value || "",
+            AnoConclusao: document.getElementById("cad-ano")?.value || "",
+            EstruturaCurricular: document.getElementById("cad-estrutura")?.value || "",
+            AreaInteresse: document.getElementById("cad-interesse")?.value || "",
+            NomeArquivoCurriculo: arquivo ? arquivo.name : "Nenhum arquivo enviado"
+        };
+
+        try {
+            const response = await fetch('http://localhost:5226/api/auth/cadastrar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dadosAluno)
+            });
+
+            const texto = await response.text();
+            const data = texto ? JSON.parse(texto) : {};
+
+            if (response.ok) {
+                mostrarToast(data.mensagem || "Cadastro realizado com sucesso!", "sucesso");
+                localStorage.setItem("usuarioLogado", JSON.stringify(dadosAluno));
+                setTimeout(() => window.location.href = "aluno.html", 1500);
+            } else {
+                mostrarToast(data.mensagem || "Erro ao cadastrar.", "erro");
+            }
+        } catch (error) {
+            console.error("Erro na integração:", error);
+            mostrarToast("Erro ao conectar com a API C#.", "erro");
+        }
+        return false;
+    }
+
+    const btnFinalizar = document.getElementById("btn-finalizar-submit");
+    if (btnFinalizar) btnFinalizar.addEventListener("click", processarCadastro);
+
+    const formCadastro = document.getElementById("form-cadastro-main");
+    if (formCadastro) formCadastro.addEventListener("submit", processarCadastro);
+
+    // ==========================================
+    // 9. PROCESSAR LOGIN
+    // ==========================================
+    const formLogin = document.getElementById("form-login");
+    if (formLogin) {
+        formLogin.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const emailVal = document.getElementById("login-email")?.value.trim() || "";
+            const senhaVal = document.getElementById("login-senha")?.value || "";
+
+            if (!emailVal || !senhaVal) {
+                mostrarToast("Preencha o e-mail e a senha!", "erro");
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:5226/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ Email: emailVal, Senha: senhaVal })
+                });
+
+                const texto = await response.text();
+                const data = texto ? JSON.parse(texto) : {};
+
+                if (response.ok) {
+                    mostrarToast("Login efetuado com sucesso!", "sucesso");
+                    localStorage.setItem("usuarioLogado", JSON.stringify(data.usuario || { nome: emailVal, email: emailVal }));
+                    setTimeout(() => window.location.href = "aluno.html", 1000);
+                } else {
+                    mostrarToast(data.mensagem || "Credenciais inválidas.", "erro");
+                }
+            } catch (error) {
+                console.error("Erro:", error);
+                mostrarToast("Falha no login. Verifique sua conexão!", "erro");
+            }
+        });
+    }
+
+    // ==========================================
+    // 10. FILTROS DE CURSOS
+    // ==========================================
+    const btnFiltros = document.querySelectorAll('.btn-filtro');
+    const cardsCursos = document.querySelectorAll('.course-card');
+
+    if (btnFiltros.length > 0 && cardsCursos.length > 0) {
+        btnFiltros.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btnFiltros.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const categoria = btn.getAttribute('data-filter');
+
+                cardsCursos.forEach(card => {
+                    const tagCurso = card.querySelector('.course-tag')?.innerText || "";
+                    if (categoria === 'all' || tagCurso.includes(categoria)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+
+    // ==========================================
+    // 11. LINKS DE NAVEGAÇÃO INTERNA
+    // ==========================================
+    function configurarLink(idDoElemento, paginaDestino) {
+        let elemento = document.getElementById(idDoElemento);
+        if (elemento) {
+            elemento.addEventListener("click", function (event) {
+                event.preventDefault();
+                window.location.href = paginaDestino;
+            });
+        }
+    }
+
+    configurarLink("nav-inicio", "index.html");
+    configurarLink("nav-cursos", "cursos.html");
+    configurarLink("nav-sobre", "sobre.html");
+    configurarLink("nav-contato", "contato.html");
+    configurarLink("btn-entrar", "login.html");
+    configurarLink("btn-cadastrar", "cadastro.html");
+
+    // ==========================================
+    // 12. EVENTO BOTÃO LOGIN COM GOOGLE (FIREBASE)
+    // ==========================================
+    const btnGoogle = document.getElementById("btn-google");
+    if (btnGoogle) {
+        btnGoogle.addEventListener("click", async () => {
+            if (typeof firebase === "undefined" || !firebase.auth) {
+                mostrarToast("Erro: Bibliotecas do Firebase não foram carregadas.", "erro");
+                return;
+            }
+
+            const provider = new firebase.auth.GoogleAuthProvider();
+
+            // Força a exibição da janela para selecionar a conta do Google
+            provider.setCustomParameters({
+                prompt: 'select_account'
+            });
+
+            try {
+                // Encerra sessão ativa anterior para abrir a janela do Google limpa
+                await firebase.auth().signOut();
+
+                const result = await firebase.auth().signInWithPopup(provider);
+                const user = result.user;
+
+                localStorage.setItem("usuarioLogado", JSON.stringify({
+                    nome: user.displayName,
+                    email: user.email,
+                    foto: user.photoURL
+                }));
+
+                mostrarToast(`Bem-vindo(a), ${user.displayName}!`, "sucesso");
+                setTimeout(() => window.location.href = "aluno.html", 1000);
+
+            } catch (error) {
+                console.error("Erro na autenticação Google:", error);
+                mostrarToast("Falha ao autenticar com o Google: " + error.message, "erro");
+            }
+        });
+    }
+});
+
+// ==========================================
+// 13. CONFIGURAÇÃO DO FIREBASE (FIREBASE AUTH)
+// ==========================================
+const firebaseConfig = {
+  apiKey: "AIzaSyATHp7t5e3o5CCHF4Nhxta9lqrr4NdZ1rk",
+  authDomain: "capacitapro-9b85d.firebaseapp.com",
+  projectId: "capacitapro-9b85d",
+  storageBucket: "capacitapro-9b85d.firebasestorage.app",
+  messagingSenderId: "914867735981",
+  appId: "1:914867735981:web:9c065d108063f5fedfe524",
+  measurementId: "G-8TBHYGS2SM"
+};
+
+if (typeof firebase !== "undefined" && !firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
+// ==========================================
+// 14. EMISSÃO DE CERTIFICADOS (jsPDF)
+>>>>>>> f891f860bac6bbf893f2e0039e6b31ef0211fe29
 // ==========================================
 window.validarForcaSenha = function(senha) {
     const container = document.getElementById('password-strength-container');
@@ -259,6 +503,7 @@ window.executarCadastro = function (e) {
     localStorage.setItem("usuarioCadastrado", JSON.stringify(dadosAluno));
     localStorage.setItem("usuarioLogado", JSON.stringify(dadosAluno));
 
+<<<<<<< HEAD
     try {
         fetch('http://localhost:5226/api/auth/cadastrar', {
             method: 'POST',
@@ -541,3 +786,7 @@ document.addEventListener("submit", function (e) {
         window.salvarPerfil(e);
     }
 });
+=======
+    doc.save(`Certificado_${nomeCurso.replace(/\s/g, '_')}.pdf`);
+};
+>>>>>>> f891f860bac6bbf893f2e0039e6b31ef0211fe29
